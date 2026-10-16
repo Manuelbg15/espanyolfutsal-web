@@ -1,0 +1,134 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+    return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params;
+---
+
+<Layout title="Política de Privacitat | Club Esportiu Acadèmia">
+    <section class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <h1
+            class="text-3xl md:text-5xl font-bold text-club-granate mb-10 font-heading"
+        >
+            Política de Privacitat
+        </h1>
+
+        <div class="space-y-8 text-gray-700 leading-relaxed">
+            <p>
+                Al Club Esportiu Acadèmia Barcelona ens comprometem a protegir
+                la vostra privacitat i a complir amb la normativa de protecció
+                de dades vigent (RGPD). A continuació us detallem com tractem
+                les vostres dades personals.
+            </p>
+
+            <!-- 1. Responsable del Tractament -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    1. Responsable del Tractament
+                </h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>
+                        <strong>Identitat:</strong> Club Esportiu Acadèmia Barcelona
+                    </li>
+                    <li>
+                        <strong>Adreça postal:</strong> Travessera de Les Corts 314,
+                        08029, Barcelona
+                    </li>
+                    <li>
+                        <strong>Contacte:</strong>
+                        <a
+                            href="mailto:info@clubesportiuacademia.es"
+                            class="text-club-granate hover:underline"
+                            >info@clubesportiuacademia.es</a
+                        >
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 2. Finalitat del Tractament -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    2. Amb quina finalitat tractem les vostres dades?
+                </h2>
+                <p class="mb-2">
+                    Tractem la informació que ens faciliten les persones
+                    interessades amb les següents finalitats:
+                </p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>
+                        Gestionar les inscripcions als nostres equips, campus i
+                        activitats extraescolars.
+                    </li>
+                    <li>
+                        Enviar informació sobre novetats, esdeveniments i
+                        activitats del Club (butlletins, comunicacions, etc.),
+                        sempre que hi hagueu donat el consentiment exprés.
+                    </li>
+                    <li>
+                        Atendre les consultes realitzades a través dels
+                        formularis de contacte.
+                    </li>
+                    <li>Gestió administrativa i facturació.</li>
+                </ul>
+            </div>
+
+            <!-- 3. Legitimació -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    3. Quina és la legitimació per al tractament de les vostres
+                    dades?
+                </h2>
+                <p>
+                    La base legal per al tractament de les vostres dades és
+                    l'execució del contracte de prestació de serveis esportius
+                    (inscripcions) o bé el consentiment de l'interessat
+                    (formularis de contacte, subscripció a newsletters).
+                </p>
+            </div>
+
+            <!-- 4. Destinataris -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    4. A quins destinataris es comunicaran les dades?
+                </h2>
+                <p>
+                    Les dades no es comunicaran a tercers, excepte per obligació
+                    legal o quan sigui necessari per a la prestació del servei
+                    (per exemple, tramitació de fitxes federatives a la
+                    Federació corresponent, assegurances esportives, etc.).
+                </p>
+            </div>
+
+            <!-- 5. Drets -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    5. Quins són els vostres drets?
+                </h2>
+                <p class="mb-2">Teniu dret a:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Accedir a les vostres dades personals.</li>
+                    <li>Sol·licitar la rectificació de les dades inexactes.</li>
+                    <li>
+                        Sol·licitar la supressió quan les dades ja no siguin
+                        necessàries.
+                    </li>
+                    <li>
+                        Sol·licitar la limitació del tractament o l'oposició al
+                        mateix.
+                    </li>
+                    <li>Sol·licitar la portabilitat de les dades.</li>
+                </ul>
+                <p class="mt-4">
+                    Podeu exercir aquests drets enviant un correu electrònic a <a
+                        href="mailto:info@clubesportiuacademia.es"
+                        class="text-club-granate hover:underline"
+                        >info@clubesportiuacademia.es</a
+                    > acompanyant una còpia del vostre DNI.
+                </p>
+            </div>
+        </div>
+    </section>
+</Layout>

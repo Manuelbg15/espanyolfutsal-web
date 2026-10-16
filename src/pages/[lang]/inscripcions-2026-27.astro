@@ -1,0 +1,424 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+    return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params;
+import { useTranslations } from "../../i18n/utils";
+const t = useTranslations(lang as any);
+---
+
+<Layout title={`${t("inscription.hero.title")} | Club Esportiu Acadèmia`}>
+    <!-- Hero Section -->
+    <section
+        class="relative h-[40vh] min-h-[350px] flex items-center justify-center overflow-hidden"
+    >
+        <div class="absolute inset-0 z-0">
+            <img
+                src="/images/inscribete-hero.png"
+                alt="Inscribete Hero"
+                class="w-full h-full object-cover"
+            />
+            <!-- OVERLAY: #000000 with opacity -->
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <h1
+                class="text-4xl md:text-6xl font-extrabold text-white uppercase font-heading tracking-tight"
+            >
+                {t("inscription.hero.title")}
+            </h1>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <!-- Custom Card Design as requested -->
+            <div
+                class="bg-white border border-gray-100 border-t-[5px] border-t-[#954535] rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] p-6 md:p-10 max-w-3xl mx-auto font-sans"
+            >
+                <div class="text-center mb-8">
+                    <h3
+                        class="text-[#954535] text-2xl md:text-3xl font-extrabold uppercase mb-2"
+                    >
+                        {t("inscription.card.title")}
+                    </h3>
+                    <p
+                        class="text-gray-600 text-[15px] leading-relaxed max-w-xl mx-auto"
+                    >
+                        {t("inscription.card.desc")}
+                    </p>
+                </div>
+
+                <form id="registrationForm" class="space-y-6">
+                    <!-- 1. DADES PERSONALS -->
+                    <div>
+                        <h4
+                            class="text-gray-800 text-lg uppercase font-bold border-b-2 border-gray-100 pb-2 mb-6 tracking-wide"
+                        >
+                            {t("inscription.section1.title")}
+                        </h4>
+
+                        <div class="flex flex-col md:flex-row gap-5 mb-5">
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                    >{t("inscription.form.name")}</label
+                                >
+                                <input
+                                    type="text"
+                                    name="player-name"
+                                    required
+                                    placeholder={t(
+                                        "inscription.form.name.placeholder",
+                                    )}
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                />
+                            </div>
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                    >{t("inscription.form.surname")}</label
+                                >
+                                <input
+                                    type="text"
+                                    name="player-surname"
+                                    required
+                                    placeholder={t(
+                                        "inscription.form.surname.placeholder",
+                                    )}
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-5">
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                    >{t("inscription.form.birthdate")}</label
+                                >
+                                <input
+                                    type="date"
+                                    name="birth-date"
+                                    required
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                />
+                            </div>
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                    >{t("inscription.form.gender")}</label
+                                >
+                                <select
+                                    name="gender"
+                                    required
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                >
+                                    <option value="">Selecciona...</option>
+                                    <option value="Masculí"
+                                        >{
+                                            t("inscription.form.gender.male")
+                                        }</option
+                                    >
+                                    <option value="Femení"
+                                        >{
+                                            t("inscription.form.gender.female")
+                                        }</option
+                                    >
+                                    <option value="Altre"
+                                        >{
+                                            t("inscription.form.gender.other")
+                                        }</option
+                                    >
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. CONTACTE I TUTORS -->
+                    <div>
+                        <h4
+                            class="text-gray-800 text-lg uppercase font-bold border-b-2 border-gray-100 pb-2 mb-6 tracking-wide mt-8"
+                        >
+                            {t("inscription.section2.title")}
+                        </h4>
+
+                        <div class="mb-5">
+                            <label
+                                class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                >{t("inscription.form.guardian")}</label
+                            >
+                            <input
+                                type="text"
+                                name="guardian-name"
+                                required
+                                placeholder={t(
+                                    "inscription.form.guardian.placeholder",
+                                )}
+                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                            />
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-5">
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                    >{
+                                        t("inscription.form.contact_email")
+                                    }</label
+                                >
+                                <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    placeholder="email@exemple.com"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                />
+                            </div>
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                    >{
+                                        t("inscription.form.contact_phone")
+                                    }</label
+                                >
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    required
+                                    placeholder="600 000 000"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. ACTIVITAT ESPORTIVA -->
+                    <div>
+                        <h4
+                            class="text-gray-800 text-lg uppercase font-bold border-b-2 border-gray-100 pb-2 mb-6 tracking-wide mt-8"
+                        >
+                            {t("inscription.section3.title")}
+                        </h4>
+
+                        <div class="flex flex-col md:flex-row gap-5 mb-5">
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                    >{
+                                        t("inscription.form.activity_type")
+                                    }</label
+                                >
+                                <div class="flex gap-4 mt-2">
+                                    <label
+                                        class="flex items-center cursor-pointer"
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="activity-type"
+                                            value="Escolar"
+                                            checked
+                                            class="mr-2 text-[#954535] focus:ring-[#954535]"
+                                        />
+                                        {t("inscription.form.type.school")}
+                                    </label>
+                                    <label
+                                        class="flex items-center cursor-pointer"
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="activity-type"
+                                            value="Federat"
+                                            class="mr-2 text-[#954535] focus:ring-[#954535]"
+                                        />
+                                        {t("inscription.form.type.federated")}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <label
+                                    class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                    >{t("inscription.form.sport")}</label
+                                >
+                                <select
+                                    name="sport"
+                                    required
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                >
+                                    <option value="">Selecciona...</option>
+                                    <option value="Futbol Sala"
+                                        >Futbol Sala</option
+                                    >
+                                    <option value="Voleibol">Voleibol</option>
+                                    <option value="Bàsquet">Bàsquet</option>
+                                    <option value="Ball Esportiu"
+                                        >Ball Esportiu</option
+                                    >
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <label
+                                class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                >{t("inscription.form.category")}</label
+                            >
+                            <select
+                                name="category"
+                                required
+                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                            >
+                                <option value="">Selecciona...</option>
+                                <option value="Promeses (4-5 anys)"
+                                    >Promeses (4-5 anys)</option
+                                >
+                                <option value="Mini Pre (6 anys)"
+                                    >Mini Pre (6 anys)</option
+                                >
+                                <option value="Prebenjamí (7 anys)"
+                                    >Prebenjamí (7 anys)</option
+                                >
+                                <option value="Mini Benjamí (8 anys)"
+                                    >Mini Benjamí (8 anys)</option
+                                >
+                                <option value="Benjamín (9 anys)"
+                                    >Benjamín (9 anys)</option
+                                >
+                                <option value="Aleví (10-11 anys)"
+                                    >Aleví (10-11 anys)</option
+                                >
+                                <option value="Infantil (12-13 anys)"
+                                    >Infantil (12-13 anys)</option
+                                >
+                                <option value="Cadet (14-15 anys)"
+                                    >Cadet (14-15 anys)</option
+                                >
+                                <option value="Juvenil (16-17-18 anys)"
+                                    >Juvenil (16-17-18 anys)</option
+                                >
+                                <option value="Sènior (+18 anys)"
+                                    >Sènior (+18 anys)</option
+                                >
+                                <option value="Veterans (+35 anys)"
+                                    >Veterans (+35 anys)</option
+                                >
+                            </select>
+                        </div>
+
+                        <div class="mb-5">
+                            <label
+                                class="block text-xs font-bold text-gray-700 uppercase mb-1.5"
+                                >{t("inscription.form.prev_club")}</label
+                            >
+                            <input
+                                type="text"
+                                name="previous-club"
+                                placeholder={t(
+                                    "inscription.form.prev_club.placeholder",
+                                )}
+                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT -->
+                    <div class="mt-8 pt-4">
+                        <div class="flex items-center mb-6">
+                            <input
+                                type="checkbox"
+                                name="acceptance-terms"
+                                required
+                                id="terms"
+                                class="w-4 h-4 text-[#954535] border-gray-300 rounded focus:ring-[#954535]"
+                            />
+                            <label
+                                for="terms"
+                                class="ml-2 text-sm text-gray-600"
+                                set:html={t("inscription.form.terms")}
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            id="submitBtn"
+                            class="w-full bg-[#fecd58] text-[#954535] font-extrabold uppercase py-4 rounded-full text-lg shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                        >
+                            {t("inscription.btn.submit")}
+                        </button>
+                    </div>
+
+                    <!-- Status Message -->
+                    <div
+                        id="formStatus"
+                        class="hidden text-center p-4 rounded-lg font-bold"
+                    >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    const form = document.getElementById("registrationForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const statusDiv = document.getElementById("formStatus");
+
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            if (submitBtn) {
+                (submitBtn as HTMLButtonElement).disabled = true;
+                submitBtn.textContent = "Enviant...";
+            }
+
+            if (statusDiv) {
+                statusDiv.classList.add("hidden");
+            }
+
+            const formData = new FormData(form as HTMLFormElement);
+
+            try {
+                const response = await fetch("/send-mail-inscripcion.php", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.status === "success") {
+                    if (statusDiv) {
+                        statusDiv.textContent =
+                            "✅ Sol·licitud enviada correctament! Rebràs un correu de confirmació.";
+                        statusDiv.className =
+                            "bg-green-100 text-green-800 p-4 rounded-lg mt-4 text-center block font-bold border border-green-200";
+                    }
+                    (form as HTMLFormElement).reset();
+                } else {
+                    throw new Error(
+                        result.message || "Error en enviar la sol·licitud",
+                    );
+                }
+            } catch (error) {
+                console.error(error);
+                if (statusDiv) {
+                    statusDiv.textContent =
+                        "❌ Error: No s'ha pogut enviar la sol·licitud. Revisa les dades o intenta-ho més tard.";
+                    statusDiv.className =
+                        "bg-red-100 text-red-800 p-4 rounded-lg mt-4 text-center block font-bold border border-red-200";
+                }
+            } finally {
+                if (submitBtn) {
+                    (submitBtn as HTMLButtonElement).disabled = false;
+                    submitBtn.textContent = "ENVIAR SOL·LICITUD 🚀";
+                }
+            }
+        });
+    }
+</script>

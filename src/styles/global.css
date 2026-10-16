@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-club-beige: #eadfcd;
+  --color-club-granate: #5d0001;
+  --color-club-gold: #da9f5c;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: var(--font-heading);
+}
+
+.text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.text-shadow-md {
+    text-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}

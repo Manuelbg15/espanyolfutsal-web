@@ -1,0 +1,120 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+    return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params;
+---
+
+<Layout title="Política de Cookies | Club Esportiu Acadèmia">
+    <section class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <h1
+            class="text-3xl md:text-5xl font-bold text-club-granate mb-10 font-heading"
+        >
+            Política de Cookies
+        </h1>
+
+        <div class="space-y-8 text-gray-700 leading-relaxed">
+            <!-- 1. Què són les cookies -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    1. Què són les cookies?
+                </h2>
+                <p>
+                    Una cookie és un fitxer que es descarrega al vostre
+                    ordinador en accedir a determinades pàgines web. Les cookies
+                    permeten a una pàgina web, entre altres coses, emmagatzemar
+                    i recuperar informació sobre els hàbits de navegació d'un
+                    usuari o del seu equip i, depenent de la informació que
+                    continguin, es poden utilitzar per reconèixer l'usuari.
+                </p>
+            </div>
+
+            <!-- 2. Tipus de cookies -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    2. Quins tipus de cookies utilitza aquesta pàgina web?
+                </h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>
+                        <strong>Cookies tècniques:</strong> Són aquelles que permeten
+                        a l'usuari la navegació a través del lloc web i la utilització
+                        de les diferents opcions o serveis que hi hagi.
+                    </li>
+                    <li>
+                        <strong>Cookies d'anàlisi:</strong> Són aquelles que, tractades
+                        per nosaltres o per tercers (com Google Analytics), ens permeten
+                        quantificar el nombre d'usuaris i així realitzar el mesurament
+                        i l'anàlisi estadística de la utilització que fan els usuaris
+                        del servei.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3. Desactivació -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    3. Com desactivar les cookies?
+                </h2>
+                <p>
+                    Podeu permetre, bloquejar o eliminar les cookies
+                    instal·lades en el vostre equip mitjançant la configuració
+                    de les opcions del navegador instal·lat al vostre ordinador.
+                </p>
+                <p class="mt-2">
+                    A continuació us oferim enllaços on trobareu informació
+                    sobre com configurar les vostres preferències als principals
+                    navegadors:
+                </p>
+                <ul class="list-disc pl-6 space-y-2 mt-4">
+                    <li>
+                        <a
+                            href="https://support.google.com/chrome/answer/95647?hl=ca"
+                            target="_blank"
+                            class="text-club-granate hover:underline"
+                            >Google Chrome</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://support.mozilla.org/ca/kb/activa-i-desactiva-les-galetes-que-les-pagines-web"
+                            target="_blank"
+                            class="text-club-granate hover:underline"
+                            >Mozilla Firefox</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://support.apple.com/ca-es/guide/safari/sfri11471/mac"
+                            target="_blank"
+                            class="text-club-granate hover:underline">Safari</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
+                            target="_blank"
+                            class="text-club-granate hover:underline"
+                            >Microsoft Edge</a
+                        >
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 4. Acceptació -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    4. Acceptació de la Política de Cookies
+                </h2>
+                <p>
+                    El Club Esportiu Acadèmia Barcelona assumeix que accepteu
+                    l'ús de cookies si continueu navegant. No obstant això,
+                    mostrem informació sobre la nostra Política de Cookies en
+                    accedir a la web perquè en sigueu conscients.
+                </p>
+            </div>
+        </div>
+    </section>
+</Layout>

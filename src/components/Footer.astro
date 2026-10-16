@@ -1,0 +1,229 @@
+---
+const { lang } = Astro.props;
+
+import { useTranslations } from "../i18n/utils";
+const t = useTranslations(lang);
+---
+
+<footer
+  class="bg-club-granate text-white pt-16 pb-8 border-t-8 border-club-gold"
+>
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <!-- Columna 1: Identidad -->
+      <div class="space-y-6">
+        <a href={`/${lang}/`} class="block">
+          <img
+            src="/images/logo-projecte-blanco.png"
+            alt="Club Esportiu Acadèmia Barcelona"
+            class="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity"
+          />
+        </a>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          {t("footer.slogan")}
+          <br />
+          {t("footer.description")}
+        </p>
+        <div class="flex space-x-4">
+          <a
+            href="https://www.instagram.com/ce.academia"
+            target="_blank"
+            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-club-gold hover:text-club-granate transition-all transform hover:-translate-y-1"
+            aria-label="Instagram"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+              ><path
+                fill-rule="evenodd"
+                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.457 2h.08zm-3.827 4a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1zm6.48 4a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"
+                clip-rule="evenodd"></path></svg
+            >
+          </a>
+          <a
+            href="https://www.youtube.com/@ce.academia"
+            target="_blank"
+            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-club-gold hover:text-club-granate transition-all transform hover:-translate-y-1"
+            aria-label="YouTube"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+              ><path
+                fill-rule="evenodd"
+                d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 01-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 01-1.768-1.768C2 15.255 2 12 2 12s0-3.254.419-4.813a2.503 2.503 0 011.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418zM15.194 12 10 15V9l5.194 3z"
+                clip-rule="evenodd"></path></svg
+            >
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna 2: Enlaces Rápidos -->
+      <div>
+        <h4
+          class="text-lg font-bold mb-6 text-club-gold uppercase tracking-wider"
+        >
+          {t("footer.sitemap")}
+        </h4>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href={`/${lang}/`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("nav.home")}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/el-club`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("nav.club")}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/actualitat`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("nav.news")}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/campus-esportius`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >Campus i Tecnificacions</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/formcontacte`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("nav.contact")}</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://barcelonafutsalcup.es/"
+              target="_blank"
+              class="text-club-gold hover:text-white hover:translate-x-1 transition-all inline-block font-semibold"
+              >🏆 Barcelona Futsal Cup</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Activitats -->
+      <div>
+        <h4
+          class="text-lg font-bold mb-6 text-club-gold uppercase tracking-wider"
+        >
+          {t("footer.activities")}
+        </h4>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href={`/${lang}/seccions/futbol-sala`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("footer.act.futsal")}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/seccions`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("footer.act.volleyball")}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/seccions`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("footer.act.basketball")}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/seccions`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("footer.act.dance")}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/extraescolars`}
+              class="text-gray-300 hover:text-white hover:translate-x-1 transition-all inline-block"
+              >{t("footer.act.extracurricular")}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`/${lang}/inscripcions-2026-27`}
+              class="mt-2 inline-block px-4 py-2 bg-club-gold text-club-granate font-bold rounded hover:bg-white transition-colors"
+              >{t("footer.act.play")}</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Contacto -->
+      <div>
+        <h4
+          class="text-lg font-bold mb-6 text-club-gold uppercase tracking-wider"
+        >
+          {t("footer.contact")}
+        </h4>
+        <ul class="space-y-4 text-gray-300">
+          <li class="flex items-start">
+            <span class="mr-3 text-club-gold text-xl">📍</span>
+            <span class="text-sm">
+              <strong>{t("location.bcn")}:</strong><br />Travessera de Les Corts
+              314,<br />08029, Barcelona
+            </span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3 text-club-gold text-xl">📍</span>
+            <span class="text-sm">
+              <strong>{t("location.lh")}:</strong><br />Carrer Natzaret 46,<br
+              />08902, L'Hospitalet
+            </span>
+          </li>
+          <li class="flex items-center">
+            <span class="mr-3 text-club-gold text-xl">📞</span>
+            <span class="text-sm">+34 640 066 023</span>
+          </li>
+          <li class="flex items-center">
+            <span class="mr-3 text-club-gold text-xl">✉️</span>
+            <a
+              href="mailto:info@clubesportiuacademia.es"
+              class="text-sm hover:text-white transition-colors"
+              >info@clubesportiuacademia.es</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div
+      class="border-t border-red-900/50 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm"
+    >
+      <p>
+        &copy; {new Date().getFullYear()} Club Esportiu Acadèmia Barcelona. {
+          t("footer.rights")
+        }
+      </p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a
+          href={`/${lang}/avis-legal`}
+          class="hover:text-club-gold transition-colors">{t("footer.legal")}</a
+        >
+        <a
+          href={`/${lang}/politica-privacitat`}
+          class="hover:text-club-gold transition-colors"
+          >{t("footer.privacy")}</a
+        >
+        <a
+          href={`/${lang}/politica-cookies`}
+          class="hover:text-club-gold transition-colors"
+          >{t("footer.cookies")}</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,159 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+    return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params;
+---
+
+<Layout title="Avís Legal | Club Esportiu Acadèmia">
+    <section class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <h1
+            class="text-3xl md:text-5xl font-bold text-club-granate mb-10 font-heading"
+        >
+            Avís Legal
+        </h1>
+
+        <div class="space-y-8 text-gray-700 leading-relaxed">
+            <!-- 1. Dades Identificatives -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    1. Dades Identificatives
+                </h2>
+                <p class="mb-4">
+                    En compliment amb el deure d'informació recollit a l'article
+                    10 de la Llei 34/2002, d'11 de juliol, de Serveis de la
+                    Societat de la Informació i del Comerç Electrònic, a
+                    continuació es faciliten les següents dades:
+                </p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>
+                        <strong>Titular:</strong> Club Esportiu Acadèmia Barcelona
+                    </li>
+                    <li>
+                        <strong>Adreça:</strong> Travessera de Les Corts 314, 08029,
+                        Barcelona
+                    </li>
+                    <li>
+                        <strong>Correu electrònic:</strong>
+                        <a
+                            href="mailto:info@clubesportiuacademia.es"
+                            class="text-club-granate hover:underline"
+                            >info@clubesportiuacademia.es</a
+                        >
+                    </li>
+                    <li><strong>Telèfon:</strong> +34 640 066 023</li>
+                </ul>
+            </div>
+
+            <!-- 2. Usuaris -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    2. Usuaris
+                </h2>
+                <p>
+                    L'accés i/o ús d'aquest portal atribueix la condició
+                    d'USUARI, que accepta, des d'aquest accés i/o ús, les
+                    Condicions Generals d'Ús aquí reflectides.
+                </p>
+            </div>
+
+            <!-- 3. Ús del Portal -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    3. Ús del Portal
+                </h2>
+                <p>
+                    El lloc web proporciona l'accés a multitud d'informacions,
+                    serveis, programes o dades (en endavant, "els continguts") a
+                    Internet pertanyents al Club Esportiu Acadèmia Barcelona.
+                    L'USUARI assumeix la responsabilitat de l'ús del portal.
+                    Aquesta responsabilitat s'estén al registre que fos
+                    necessari per accedir a determinats serveis o continguts.
+                </p>
+            </div>
+
+            <!-- 4. Protecció de Dades -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    4. Protecció de Dades
+                </h2>
+                <p>
+                    El Club Esportiu Acadèmia Barcelona compleix amb les
+                    directrius del Reglament General de Protecció de Dades i
+                    altra normativa vigent, i vetlla per garantir un correcte ús
+                    i tractament de les dades personals de l'usuari. Per a més
+                    informació, visiti la nostra <a
+                        href="/politica-privacitat"
+                        class="text-club-granate hover:underline font-bold"
+                        >Política de Privacitat</a
+                    >.
+                </p>
+            </div>
+
+            <!-- 5. Propietat Intel·lectual i Industrial -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    5. Propietat Intel·lectual i Industrial
+                </h2>
+                <p>
+                    El Club Esportiu Acadèmia Barcelona és titular de tots els
+                    drets de propietat intel·lectual i industrial de la seva
+                    pàgina web, així com dels elements continguts en la mateixa
+                    (imatges, so, àudio, vídeo, programari o textos; marques o
+                    logotips, combinacions de colors, estructura i disseny,
+                    etc.).
+                </p>
+                <p class="mt-2">
+                    Tots els drets reservats. Queden expressament prohibides la
+                    reproducció, la distribució i la comunicació pública,
+                    inclosa la seva modalitat de posada a disposició, de la
+                    totalitat o part dels continguts d'aquesta pàgina web, amb
+                    fins comercials, en qualsevol suport i per qualsevol mitjà
+                    tècnic, sense l'autorització del Club.
+                </p>
+            </div>
+
+            <!-- 6. Exclusió de Garanties i Responsabilitat -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    6. Exclusió de Garanties i Responsabilitat
+                </h2>
+                <p>
+                    El Club no es fa responsable, en cap cas, dels danys i
+                    perjudicis de qualsevol naturalesa que poguessin ocasionar,
+                    a títol enunciatiu: errors o omissions en els continguts,
+                    falta de disponibilitat del portal o la transmissió de virus
+                    o programes maliciosos o lesius en els continguts, malgrat
+                    haver adoptat totes les mesures tecnològiques necessàries
+                    per evitar-ho.
+                </p>
+            </div>
+
+            <!-- 7. Modificacions -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    7. Modificacions
+                </h2>
+                <p>
+                    El Club es reserva el dret d'efectuar sense previ avís les
+                    modificacions que consideri oportunes al seu portal.
+                </p>
+            </div>
+
+            <!-- 8. Legislació Aplicable -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    8. Legislació Aplicable i Jurisdicció
+                </h2>
+                <p>
+                    La relació entre el Club i l'USUARI es regirà per la
+                    normativa espanyola vigent i qualsevol controvèrsia se
+                    sotmetrà als Jutjats i tribunals de la ciutat de Barcelona.
+                </p>
+            </div>
+        </div>
+    </section>
+</Layout>

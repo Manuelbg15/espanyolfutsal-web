@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "actualitat"
+    label: "Actualitat"
+    folder: "src/content/actualitat"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Títol", name: "title", widget: "string"}
+      - {label: "Descripció", name: "description", widget: "text"}
+      - {label: "Data de publicació", name: "pubDate", widget: "datetime"}
+      - {label: "Imatge Principal", name: "heroImage", widget: "image"}
+      - {label: "Cos", name: "body", widget: "markdown"}

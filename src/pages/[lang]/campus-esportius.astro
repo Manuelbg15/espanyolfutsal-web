@@ -1,0 +1,126 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SectionCard from "../../components/SectionCard.astro";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params;
+import { useTranslations } from "../../i18n/utils";
+const t = useTranslations(lang as any);
+
+const campusActivities = [
+  {
+    title: t("campus.christmas.title"),
+    image: "/images/campus-nadal.jpg",
+    link: `/${lang}/formcontacte`, // Linking to contact form as per request
+    description: t("campus.christmas.desc"),
+    btnText: t("campus.btn.more_info"),
+  },
+  {
+    title: t("campus.technification.title"),
+    image: "/images/tecnificacion.jpg",
+    link: `/${lang}/formcontacte`,
+    description: t("campus.technification.desc"),
+    btnText: t("campus.btn.check_schedule"),
+  },
+  {
+    title: t("campus.summer.title"),
+    image: "/images/campus-estiu.jpg",
+    link: `/${lang}/formcontacte`,
+    description: t("campus.summer.desc"),
+    btnText: t("campus.btn.coming_soon"),
+  },
+];
+---
+
+<Layout title={`Campus Esportius | Club Esportiu Acadèmia`}>
+  <!-- Hero Section -->
+  <section
+    class="relative h-[50vh] min-h-[450px] flex items-center justify-center overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/campus-hero.jpg"
+        alt="Campus Hero"
+        class="w-full h-full object-cover"
+      />
+      <!-- OVERLAY: #817156 with opacity -->
+      <div class="absolute inset-0 bg-[#817156]/60"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <h1
+        class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 uppercase font-heading tracking-tight"
+      >
+        {t("campus.hero.title")}
+      </h1>
+      <p class="text-xl md:text-2xl text-white font-medium tracking-wide">
+        {t("campus.hero.subtitle")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+        {t("campus.intro")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Campus Grid -->
+  <section class="py-24 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {
+          campusActivities.map((activity) => (
+            // Reusing SectionCard component logic loosely, or creating custom cards as per design
+            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden flex flex-col">
+              <div class="h-64 overflow-hidden relative group">
+                <img
+                  src={activity.image}
+                  alt={activity.title}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="p-8 flex flex-col flex-grow items-center text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 uppercase">
+                  {activity.title}
+                </h3>
+                <p class="text-gray-600 mb-8 leading-relaxed flex-grow">
+                  {activity.description}
+                </p>
+                <a
+                  href={activity.link}
+                  class="inline-block px-6 py-3 border-2 border-club-granate text-club-granate font-bold rounded-lg hover:bg-club-granate hover:text-white transition-all uppercase text-sm tracking-wider"
+                >
+                  {activity.btnText}
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Contacte -->
+  <section class="py-16 bg-club-beige/20 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 uppercase text-shadow-sm"
+      >
+        {t("campus.cta.title")}
+      </h2>
+      <a
+        href={`/${lang}/formcontacte`}
+        class="inline-block px-10 py-5 bg-club-granate text-white rounded-lg font-bold text-lg hover:bg-club-granate/90 hover:scale-105 transition-all shadow-lg"
+      >
+        {t("campus.cta.btn")}
+      </a>
+    </div>
+  </section>
+</Layout>

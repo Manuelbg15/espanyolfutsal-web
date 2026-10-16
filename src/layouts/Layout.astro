@@ -1,0 +1,77 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import "../styles/animations.css"; // Ensure global styles are imported if needed, though Tailwind might be injected via integration
+// Actually standard 'basics' template includes Layout. Let's see if I should just use vanilla styles or if 'global.css' exists.
+// I'll stick to defining basics here.
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+import { getLangFromUrl } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Club Esportiu Academia - Tu lugar para el deporte"
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/images/logo-projecte.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- AOS Animation CSS -->
+		<link
+			href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+			rel="stylesheet"
+		/>
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+		></script>
+	</head>
+	<body
+		class="bg-slate-50 font-sans text-gray-900 antialiased min-h-screen flex flex-col"
+	>
+		<Header lang={lang} />
+		<main class="flex-grow pt-16">
+			<!-- pt-16 to account for fixed header -->
+			<slot />
+		</main>
+		<Footer lang={lang} />
+		<script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"
+		></script>
+		<script is:inline>
+			AOS.init({
+				duration: 800,
+				once: true,
+				offset: 100,
+				easing: "ease-out-cubic",
+			});
+		</script>
+		<script>
+			if ((window as any).netlifyIdentity) {
+				(window as any).netlifyIdentity.on("init", (user: any) => {
+					if (!user) {
+						(window as any).netlifyIdentity.on("login", () => {
+							document.location.href = "/admin/";
+						});
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

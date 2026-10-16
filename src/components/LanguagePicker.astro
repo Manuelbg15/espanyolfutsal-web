@@ -1,0 +1,58 @@
+---
+import { languages } from "../i18n/ui";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+---
+
+<div class="flex items-center space-x-2">
+    {
+        Object.entries(languages).map(([key, label]) => {
+            // Logic to replace the language segment in the URL
+            // Assuming URL starts with /ca/ or /es/ or nothing (which defaults to something, but here we enforce lang param)
+            // Since pages are in [lang], the URL should always be /lang/...
+
+            let newPath = currentPath;
+            const validLangs = Object.keys(languages); // ['ca', 'es']
+
+            // Check if path starts with any language prefix
+            const pathSegments = currentPath.split("/").filter(Boolean);
+
+            if (
+                pathSegments.length > 0 &&
+                validLangs.includes(pathSegments[0])
+            ) {
+                // Replace the first segment
+                pathSegments[0] = key;
+                newPath = "/" + pathSegments.join("/");
+            } else {
+                // If no lang prefix (e.g. root), prepend it?
+                // But our pages are [lang], so we should be fine.
+                // If we had a redirect at root, fine.
+                newPath = `/${key}${currentPath}`;
+            }
+
+            // Fix trailing slash issues if needed, but simple join is usually okay.
+            // If original path had trailing slash, it might be lost or added. Astro usually handles this.
+            if (currentPath.endsWith("/") && !newPath.endsWith("/")) {
+                newPath += "/";
+            }
+
+            const isActive = lang === key;
+
+            return (
+                <a
+                    href={newPath}
+                    class={`px-2 py-1 rounded-md text-sm font-semibold transition-colors ${
+                        isActive
+                            ? "bg-club-granate text-white"
+                            : "text-gray-600 hover:text-club-granate hover:bg-gray-100"
+                    }`}
+                >
+                    {key.toUpperCase()}
+                </a>
+            );
+        })
+    }
+</div>

@@ -1,0 +1,303 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params;
+import { useTranslations } from "../../i18n/utils";
+const t = useTranslations(lang as any);
+---
+
+<Layout title={`${t("contact.hero.title")} | Club Esportiu Acadèmia`}>
+  <!-- Hero Section -->
+  <section
+    class="relative h-[50vh] min-h-[450px] flex items-center justify-center overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/contacto-hero.png"
+        alt="Contacto Hero"
+        class="w-full h-full object-cover"
+      />
+      <!-- CUSTOM OVERLAY #734c40 -->
+      <div class="absolute inset-0 bg-[#734c40]/70"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <h1
+        class="text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase font-heading tracking-tight"
+      >
+        {t("contact.hero.title")}
+      </h1>
+      <p class="text-xl md:text-2xl text-white font-medium tracking-wide">
+        {t("contact.hero.subtitle")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="py-24 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl">
+        <form class="space-y-6" id="contactForm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Nombre -->
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-bold text-gray-700 mb-2"
+                >{t("contact.form.name")}</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all placeholder-gray-400"
+                placeholder={t("contact.form.name.placeholder")}
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-bold text-gray-700 mb-2"
+                >{t("contact.form.email")}</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all placeholder-gray-400"
+                placeholder={t("contact.form.email.placeholder")}
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Teléfono -->
+            <div>
+              <label
+                for="phone"
+                class="block text-sm font-bold text-gray-700 mb-2"
+                >{t("contact.form.phone")}</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="[0-9]{9,}"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all placeholder-gray-400"
+                placeholder={t("contact.form.phone.placeholder")}
+              />
+            </div>
+
+            <!-- Asunto -->
+            <div>
+              <label
+                for="subject"
+                class="block text-sm font-bold text-gray-700 mb-2"
+                >{t("contact.form.subject")}</label
+              >
+              <select
+                id="subject"
+                name="subject"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all bg-white"
+              >
+                <option value="" disabled selected
+                  >{t("contact.form.subject.default")}</option
+                >
+                <option value="Informació General"
+                  >{t("contact.form.subject.info")}</option
+                >
+                <option value="Inscripcions"
+                  >{t("contact.form.subject.inscription")}</option
+                >
+                <option value="Campus i Tecnificacions"
+                  >{t("contact.form.subject.campus")}</option
+                >
+                <option value="Col·laboracions"
+                  >{t("contact.form.subject.collab")}</option
+                >
+                <option value="Altres">{t("contact.form.subject.other")}</option
+                >
+              </select>
+            </div>
+          </div>
+
+          <!-- Mensaje -->
+          <div>
+            <label
+              for="message"
+              class="block text-sm font-bold text-gray-700 mb-2"
+              >{t("contact.form.message")}</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all placeholder-gray-400 resize-none"
+              placeholder={t("contact.form.message.placeholder")}></textarea>
+          </div>
+
+          <!-- Privacidad -->
+          <div class="flex items-start">
+            <input
+              type="checkbox"
+              id="privacy"
+              name="privacy"
+              required
+              class="mt-1 w-5 h-5 text-club-granate border-gray-300 rounded focus:ring-club-granate"
+            />
+            <label
+              for="privacy"
+              class="ml-3 text-sm text-gray-600"
+              set:html={t("contact.form.privacy")}
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button
+              type="submit"
+              id="submitBtn"
+              class="w-full md:w-auto px-8 py-4 bg-club-granate text-white font-bold rounded-lg hover:bg-club-granate/90 focus:ring-4 focus:ring-club-granate/30 transition-all transform hover:-translate-y-1 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {t("contact.form.btn.submit")}
+            </button>
+          </div>
+
+          <!-- Status Messages -->
+          <div id="formStatus" class="hidden rounded-lg p-4 mt-4 text-center">
+            {/* Populated by JS */}
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info Section -->
+  <section class="py-16 bg-club-beige/20 border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h3
+        class="text-2xl font-bold text-gray-900 mb-6 uppercase text-club-granate"
+      >
+        {t("contact.direct.title")}
+      </h3>
+      <p class="text-gray-700 mb-8">
+        {t("contact.direct.desc")}
+      </p>
+
+      <p class="text-xl md:text-2xl font-bold text-gray-900 mb-12">
+        <a
+          href="mailto:info@clubesportiuacademia.es"
+          class="text-club-granate hover:underline"
+          >info@clubesportiuacademia.es</a
+        >
+        <br class="md:hidden" />
+        <span class="hidden md:inline text-gray-400 mx-2">|</span>
+        <span
+          class="text-lg md:text-xl text-gray-700 block md:inline mt-2 md:mt-0"
+          >{t("contact.phones")}</span
+        >
+      </p>
+
+      <div class="w-24 h-1 bg-club-granate/20 mx-auto rounded-full mb-12"></div>
+
+      <div class="grid md:grid-cols-2 gap-10 text-gray-700">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <strong class="block text-lg text-club-granate mb-2"
+            >{t("location.bcn")}</strong
+          >
+          <p set:html={t("contact.address.bcn")} />
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <strong class="block text-lg text-club-granate mb-2"
+            >{t("location.lh")}</strong
+          >
+          <p set:html={t("contact.address.lh")} />
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <a
+          href="https://www.instagram.com/ce.academia"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center text-club-granate font-bold text-lg hover:text-club-gold transition-colors"
+        >
+          <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"
+            ><path
+              fill-rule="evenodd"
+              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.457 2h.08zm-3.827 4a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1zm6.48 4a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"
+              clip-rule="evenodd"></path></svg
+          >
+          www.instagram.com/ce.academia
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Simple client-side handling for demonstration.
+  // In a real Hostalia hosting environment with PHP support, this form should point to a PHP script
+  // that handles the actual mailing using mail() or PHPMailer.
+  const form = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const statusDiv = document.getElementById("formStatus");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Basic Status Update
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviant...";
+      statusDiv.classList.add("hidden");
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        // Send data to PHP script
+        const response = await fetch("/send-mail.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === "success") {
+          // Success
+          console.log("Form submitted:", data);
+          statusDiv.textContent =
+            "✅ Missatge enviat correctament! Et contactarem aviat.";
+          statusDiv.className =
+            "bg-green-100 text-green-800 p-4 rounded-lg mt-4 text-center block font-medium";
+          form.reset();
+        } else {
+          throw new Error(result.message || "Error en enviar el formulari");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        statusDiv.textContent =
+          "❌ Hi ha hagut un error en enviar el missatge. Si us plau, intenta-ho més tard o contacta per telèfon.";
+        statusDiv.className =
+          "bg-red-100 text-red-800 p-4 rounded-lg mt-4 text-center block font-medium";
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "ENVIAR MISSATGE 📤";
+        }
+      }
+    });
+  }
+</script>

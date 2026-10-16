@@ -1,0 +1,35 @@
+name: Deploy to Hostalia
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types: [cms-update]
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Usage Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 🛠️ Build Project
+        run: npm run build
+        env:
+          CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
+
+      - name: 📂 Sync files (LFTP)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+          lftp -c "set ftp:ssl-allow no; set ssl:verify-certificate no; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mirror -R -v --parallel=2 --delete ./dist /clubesportiuacademia.es; bye"
