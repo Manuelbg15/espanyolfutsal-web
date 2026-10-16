@@ -8,305 +8,437 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 import { useTranslations } from "../../../i18n/utils";
 const t = useTranslations(lang as any);
+
+const teams = [
+  // SENIORS
+  {
+    category: "seniors",
+    categoryLabel: "SÈNIORS",
+    id: "senior-femeni",
+    name: "1R EQUIP FEMENÍ",
+    season: "2026-27",
+    image: null,
+    staff: [
+      { role: "1r Entrenador", name: "Ferran Roldán Salvador" },
+      { role: "Entrenadora auxiliar", name: "Oscar López Soler" },
+      { role: "Delegat", name: "Tau López Martínez" },
+    ],
+    players: [
+      { num: 1, name: "Alexia García Sevilla" },
+      { num: 2, name: "Irene Griso Garcia" },
+      { num: 4, name: "Elena Verdú Ventura" },
+      { num: 5, name: "Andrea Perez Colom" },
+      { num: 8, name: "Ana Oller Garcia" },
+      { num: 9, name: "Sandra Balari Serra" },
+      { num: 10, name: "Paula Gales Peral" },
+      { num: 11, name: "Claudia Sala Figueras" },
+      { num: 13, name: "Patricia Angosto Sanchez" },
+      { num: 14, name: "Tatiana Romero Freixas" },
+      { num: 15, name: "Marina Benet Esteve" },
+      { num: 18, name: "Marta Blade Mateu" },
+      { num: 19, name: "Laura Jara Ginabreda" },
+      { num: 21, name: "Aina Llovera Espriu" },
+      { num: 29, name: "Adriana De Regas Abel" },
+    ],
+  },
+  {
+    category: "seniors",
+    categoryLabel: "SÈNIORS",
+    id: "senior-masculi-1",
+    name: "1R EQUIP MASCULÍ",
+    season: "2026-27",
+    image: "/images/equips/1r-equip-masculi.jpg",
+    staff: [
+      { role: "1r Entrenador", name: "Fernando Andrade Alarcón" },
+      { role: "Entrenadora auxiliar", name: "Antonio Negre Serra" },
+      { role: "Delegat", name: "Sergi Bescós i Codinach" },
+    ],
+    players: [
+      { num: 1, name: "Adam Candalija Naranjo" },
+      { num: 2, name: "Geonuk Kim" },
+      { num: 3, name: "Jaume Marzo Guijarro" },
+      { num: 6, name: "Hugo Villaescusa Mirmi" },
+      { num: 7, name: "Carlos Daniel Gomes Naranjo" },
+      { num: 8, name: "Hector Francisco Sabana Guerrero" },
+      { num: 9, name: "Pol Andreu Mateu" },
+      { num: 10, name: "Muhammad Ezan Hussain Batool" },
+      { num: 11, name: "Iker Flores Roman" },
+      { num: 14, name: "Mario Villaescusa Mirmi" },
+      { num: 17, name: "Lorenzo Socosote Bokobo" },
+      { num: 19, name: "Killian Tejero Tortajada" },
+      { num: 20, name: "Guillem Martinez Macia" },
+      { num: 26, name: "Marc Blanco Larrosa" },
+      { num: 49, name: "Aitor Oliveras Pamplona" },
+    ],
+  },
+  {
+    category: "seniors",
+    categoryLabel: "SÈNIORS",
+    id: "senior-masculi-2",
+    name: "2D EQUIP MASCULÍ",
+    season: "2026-27",
+    image: "/images/equips/2d-equip-masculi.jpg",
+    staff: [
+      { role: "1r Entrenador", name: "Gerard Bascompte Garcia" },
+    ],
+    players: [
+      { num: 3, name: "Albert Nadal Par" },
+      { num: 6, name: "Josep Maria Menarguez Pascual" },
+      { num: 7, name: "Raúl Vela Rallo" },
+      { num: 8, name: "Juan Flores Vilasau" },
+      { num: 9, name: "Miguel Rolando Recchimurzo" },
+      { num: 10, name: "David Larré Flores" },
+      { num: 11, name: "Jose Luis Par Par" },
+      { num: 14, name: "Jordi Larré Flores" },
+      { num: 17, name: "Marc Navarro Vazquez" },
+      { num: 19, name: "Marc Coll Jiménez" },
+      { num: 21, name: "Marc Miras Ortuño" },
+      { num: 22, name: "Toni Massó Rojas" },
+      { num: 23, name: "Cristóbal Riera Jiménez" },
+      { num: 24, name: "Joan Balbrea Rull" },
+      { num: 95, name: "Adria Herrero Soria" },
+    ],
+  },
+  {
+    category: "seniors",
+    categoryLabel: "SÈNIORS",
+    id: "senior-masculi-3",
+    name: "3R EQUIP MASCULÍ",
+    season: "2026-27",
+    image: "/images/equips/3r-equip-masculi.jpg",
+    staff: [
+      { role: "1ra Entrenadora", name: "Ana Oller Garcia" },
+      { role: "Entrenadora auxiliar", name: "Carlota Martinez Mestres" },
+      { role: "Delegat", name: "Rafael Campos Borràs" },
+    ],
+    players: [
+      { num: 1, name: "Juan José Fernández Rios" },
+      { num: 2, name: "Sergi Bairaguet Vernet" },
+      { num: 5, name: "Josue Inaldo Alcantara Moreno" },
+      { num: 6, name: "Jonathan Garcia i Fernández" },
+      { num: 7, name: "Ismael Valenzuela Piñar" },
+      { num: 8, name: "Gerard Reverter Salazar" },
+      { num: 9, name: "Pedro Garcia Delgado" },
+      { num: 11, name: "Leonardo Camargo Villot" },
+      { num: 12, name: "Jordi Pérez Toran" },
+      { num: 13, name: "Idan Mellado García" },
+      { num: 16, name: "Guillermo Cantero Lopez-Chicheri" },
+      { num: 18, name: "Carlos Blade Mateu" },
+      { num: 21, name: "Genis Casals Ruiz" },
+    ],
+  },
+
+  // JUVENILS
+  {
+    category: "juvenils",
+    categoryLabel: "JUVENILS",
+    id: "juvenil-a",
+    name: "JUVENIL “A”",
+    season: "2026-27",
+    image: "/images/equips/juvenil-a.jpg",
+    staff: [
+      { role: "1r Entrenador", name: "Jorge Quixano Grande" },
+    ],
+    players: [
+      { num: 5, name: "Paolo Vianello Gonzaga" },
+      { num: 6, name: "Tahiri Salinas Claur" },
+      { num: 7, name: "Iván Vela Rallo" },
+      { num: 8, name: "Guillem Romero Alonso" },
+      { num: 9, name: "Alex Arroyos Mañach" },
+      { num: 10, name: "Max De Lange Ventura" },
+      { num: 12, name: "Ot Bruguera Fuster" },
+      { num: 13, name: "Pau Lopez Bouso" },
+      { num: 14, name: "Jaïr Valero Mallafré" },
+      { num: 15, name: "Davi Luiz Guedes Lins" },
+      { num: 21, name: "Ignacio Márquez Medrano" },
+      { num: 99, name: "Luca Nicolosi Mateu" },
+    ],
+  },
+  {
+    category: "juvenils",
+    categoryLabel: "JUVENILS",
+    id: "juvenil-b",
+    name: "JUVENIL “B”",
+    season: "2026-27",
+    image: null,
+    staff: [
+      { role: "1r Entrenador", name: "Oscar Salido Bote" },
+    ],
+    players: [
+      { num: 1, name: "Jan Amat Riaza" },
+      { num: 3, name: "Finn Rian Moughty" },
+      { num: 4, name: "Cesc Badia Salla" },
+      { num: 7, name: "Byron Manuel Morales De La Coba" },
+      { num: 8, name: "Antonio Llinàres Gabarron" },
+      { num: 11, name: "Alejandro Pablo Muci" },
+      { num: 17, name: "David Alejandro Ojeda Estrada" },
+      { num: 20, name: "Adrián Mateo Barrera" },
+      { num: 23, name: "Martí Pujol Viver" },
+      { num: 30, name: "Antoni Porta Costa" },
+    ],
+  },
+
+  // INFANTIL
+  {
+    category: "infantil",
+    categoryLabel: "INFANTIL",
+    id: "infantil",
+    name: "INFANTIL",
+    season: "2026-27",
+    image: null,
+    staff: [
+      { role: "1r Entrenador", name: "Nestor Ramos Bolivar" },
+    ],
+    players: [
+      { num: 1, name: "Adrian Ramos Mba" },
+      { num: 5, name: "Eric Macias Romero" },
+      { num: 6, name: "Noel Borrero Gil" },
+      { num: 7, name: "Jordi Neila Fernández" },
+      { num: 8, name: "Adrià Alloza Aviles" },
+      { num: 10, name: "Adrian Alonso Manzanares" },
+      { num: 13, name: "Nicolas Cruz Estrada" },
+      { num: 14, name: "Mohamed Elaghzaouni" },
+      { num: 15, name: "Alvaro De La Cruz Rodriguez" },
+      { num: 17, name: "Unai Perez Enriquez" },
+      { num: 19, name: "Jose Gonzalez Jorquera" },
+      { num: 23, name: "Marc Lopez Crespo" },
+      { num: 27, name: "Pol Fitó Pacheco" },
+    ],
+  },
+
+  // ALEVIN
+  {
+    category: "alevi",
+    categoryLabel: "ALEVÍ",
+    id: "alevi",
+    name: "ALEVÍ",
+    season: "2026-27",
+    image: null,
+    staff: [
+      { role: "1r Entrenador", name: "Alex González Barreira" },
+    ],
+    players: [
+      { num: 1, name: "Martín Miralles Merino" },
+      { num: 2, name: "Alejandro Castro Vera" },
+      { num: 5, name: "Ruben Valdivia Amores" },
+      { num: 6, name: "Martín Pastor Humanes" },
+      { num: 9, name: "Didac Jordan Pujante" },
+      { num: 10, name: "Juan Miguel Llordes García" },
+      { num: 11, name: "Iago Jurado Barea" },
+      { num: 15, name: "Lenny Gabillat Prieto" },
+      { num: 16, name: "Unai Zabala Pabón" },
+      { num: 20, name: "Hugo García Martínez" },
+      { num: 21, name: "Marc Sánchez Olive" },
+      { num: 25, name: "Bruno Varas Ordovas" },
+      { num: 67, name: "Nil Moruno Pérez" },
+    ],
+  },
+
+  // BENJAMINS
+  {
+    category: "benjamins",
+    categoryLabel: "BENJAMINS",
+    id: "benjami-a",
+    name: "BENJAMÍ “A”",
+    season: "2026-27",
+    image: null,
+    staff: [
+      { role: "1ra Entrenadora", name: "Carla Zapata Jiménez" },
+    ],
+    players: [
+      { num: 1, name: "Diego Vázquez Gallardo" },
+      { num: 7, name: "Yago Rubio Gom" },
+      { num: 8, name: "Daniel Manzano Silantyev" },
+      { num: 9, name: "Mario Melero García" },
+      { num: 10, name: "Jordi Cornellà Vizcaíno" },
+      { num: 14, name: "Pablo Huerta Suay" },
+      { num: 15, name: "José Ricardo Rodrigues Costa" },
+      { num: 16, name: "Izan Sánchez Loscos" },
+      { num: 22, name: "Gonzalo Gutierrez-Zamora Canals" },
+    ],
+  },
+  {
+    category: "benjamins",
+    categoryLabel: "BENJAMINS",
+    id: "benjami-b",
+    name: "BENJAMÍ “B”",
+    season: "2026-27",
+    image: null,
+    staff: [
+      { role: "1ra Entrenadora", name: "Carla Zapata Jiménez" },
+    ],
+    players: [
+      { num: 1, name: "Dylan Conde Bedmar" },
+      { num: 3, name: "Lucas Segundo Bueso" },
+      { num: 8, name: "Leo Moreno Sánchez" },
+      { num: 10, name: "Arnau Santano Almendros" },
+      { num: 11, name: "Fernando Pérez Barreiro" },
+      { num: 12, name: "Adrià Lérida Dubryaniik" },
+      { num: 18, name: "Lucas Gil Monforte" },
+      { num: 21, name: "Alejandro Gutierrez-Zamora Canals" },
+      { num: 28, name: "Evan Martínez Trujillo" },
+    ],
+  },
+];
 ---
 
-<Layout title={`Fútbol Sala | Club Esportiu Acadèmia`}>
+<Layout title={`Futbol Sala Federat | SD Espanyol Futbol Sala`}>
   <!-- Hero Section -->
   <section
-    class="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden"
+    class="relative h-[50vh] min-h-[420px] flex items-center justify-center overflow-hidden"
   >
     <div class="absolute inset-0 z-0">
       <img
-        src="/images/futsal-hero.jpg"
-        alt="Fútbol Sala Hero"
+        src="/images/equips/1r-equip-masculi.jpg"
+        alt="Equip Federat SD Espanyol"
         class="w-full h-full object-cover"
       />
-      <div class="absolute inset-0 bg-[#b09f8b]/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07224f]/95 via-[#005bac]/85 to-[#07224f]/95"></div>
     </div>
 
-    <div class="relative z-10 text-center px-4">
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <img
+        src="/images/escudo-espanyol.png"
+        alt="Escut SD Espanyol Futbol Sala"
+        class="h-16 w-auto mx-auto mb-4 drop-shadow-md"
+      />
       <h1
-        class="text-4xl md:text-6xl font-extrabold text-white uppercase font-heading tracking-tight"
+        class="text-4xl md:text-6xl font-extrabold text-white mb-4 uppercase font-heading tracking-tight"
       >
-        {t("futsal.hero.title")}
+        {t("federated.hero.title")}
       </h1>
-    </div>
-  </section>
-
-  <!-- Intro Section -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <p class="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
-        {t("futsal.intro")}
+      <p class="text-lg md:text-xl text-blue-100 font-medium tracking-wide">
+        {t("federated.hero.subtitle")}
       </p>
     </div>
   </section>
 
-  <!-- Categories Accordion Section -->
-  <section class="py-24 bg-gray-50 border-t border-gray-200">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-gray-900 mb-10 uppercase font-heading"
-      >
-        {t("futsal.categories.title")}
-      </h2>
+  <!-- Categories Filter Navigation -->
+  <section class="sticky top-16 md:top-20 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200 py-3 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-center gap-2 md:gap-4 overflow-x-auto text-xs md:text-sm font-bold">
+      <a href="#seniors" class="px-4 py-2 rounded-full bg-blue-50 text-[#0073ce] hover:bg-[#0073ce] hover:text-white transition-colors whitespace-nowrap">
+        SÈNIORS
+      </a>
+      <a href="#juvenils" class="px-4 py-2 rounded-full bg-blue-50 text-[#0073ce] hover:bg-[#0073ce] hover:text-white transition-colors whitespace-nowrap">
+        JUVENILS
+      </a>
+      <a href="#infantil" class="px-4 py-2 rounded-full bg-blue-50 text-[#0073ce] hover:bg-[#0073ce] hover:text-white transition-colors whitespace-nowrap">
+        INFANTIL
+      </a>
+      <a href="#alevi" class="px-4 py-2 rounded-full bg-blue-50 text-[#0073ce] hover:bg-[#0073ce] hover:text-white transition-colors whitespace-nowrap">
+        ALEVÍ
+      </a>
+      <a href="#benjamins" class="px-4 py-2 rounded-full bg-blue-50 text-[#0073ce] hover:bg-[#0073ce] hover:text-white transition-colors whitespace-nowrap">
+        BENJAMINS
+      </a>
+    </div>
+  </section>
 
-      <div class="space-y-4">
-        <!-- GENERIC ACCORDION ITEM COMPONENT STRUCTURE -->
-        <!-- Seniors -->
-        <details
-          class="group bg-white rounded-lg border border-gray-200 shadow-sm open:shadow-md transition-shadow"
-        >
-          <summary
-            class="flex justify-between items-center w-full p-6 text-left cursor-pointer list-none text-lg font-bold text-gray-800 bg-white rounded-lg group-open:rounded-b-none group-open:bg-gray-50 hover:bg-gray-50 transition-colors"
-          >
-            <span>{t("futsal.cat.senior")}</span>
-            <span class="transition group-open:rotate-180">
-              <svg
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"><path d="M6 9l6 6 6-6"></path></svg
-              >
-            </span>
-          </summary>
-          <div
-            class="p-6 border-t border-gray-100 text-gray-600 animate-fadeIn"
-          >
-            <h3 class="text-2xl font-bold text-club-granate mb-4">
-              {t("futsal.cat.senior.1")}
-            </h3>
-            <div class="mb-6 rounded-lg overflow-hidden shadow-sm">
-              <!-- Placeholder for Team Photo -->
-              <div
-                class="bg-gray-100 w-full aspect-video flex items-center justify-center text-gray-400"
-              >
-                <span>{t("futsal.cat.senior.photo1")}</span>
+  <!-- Teams Section -->
+  <section class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-20">
+      {
+        ["seniors", "juvenils", "infantil", "alevi", "benjamins"].map((catKey) => {
+          const categoryTeams = teams.filter((t) => t.category === catKey);
+          const categoryTitle = categoryTeams[0]?.categoryLabel || catKey.toUpperCase();
+
+          return (
+            <div id={catKey} class="scroll-mt-36">
+              <div class="flex items-center gap-4 mb-10 pb-4 border-b-2 border-[#0073ce]/20">
+                <span class="w-3 h-8 bg-[#0073ce] rounded-full"></span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight uppercase font-heading">
+                  {categoryTitle}
+                </h2>
+              </div>
+
+              <div class="space-y-12">
+                {categoryTeams.map((team) => (
+                  <div class="bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                    <!-- Team Header -->
+                    <div class="bg-gradient-to-r from-[#07224f] to-[#005bac] text-white p-6 md:p-8 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                      <div>
+                        <span class="text-xs font-bold text-blue-200 tracking-widest uppercase block mb-1">
+                          Temporada {team.season}
+                        </span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold font-heading">
+                          {team.name}
+                        </h3>
+                      </div>
+                      <span class="inline-flex items-center gap-1.5 self-start md:self-auto bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase border border-white/20">
+                        <span>👥</span> {team.players.length} Jugadors/es
+                      </span>
+                    </div>
+
+                    <div class="p-6 md:p-8">
+                      <!-- Official Team Photo -->
+                      {team.image ? (
+                        <div class="mb-8 rounded-xl overflow-hidden shadow-md border border-gray-100 max-h-[500px]">
+                          <img
+                            src={team.image}
+                            alt={`Foto Oficial ${team.name}`}
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : null}
+
+                      <!-- Staff Tècnic -->
+                      {team.staff.length > 0 && (
+                        <div class="mb-8 bg-blue-50/60 p-5 rounded-xl border border-[#0073ce]/15">
+                          <h4 class="text-xs font-bold text-[#0073ce] uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <span>📋</span> {t("federated.staff")}
+                          </h4>
+                          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            {team.staff.map((s) => (
+                              <div class="bg-white p-3 rounded-lg border border-gray-100">
+                                <span class="text-xs text-gray-400 block font-semibold">{s.role}</span>
+                                <span class="text-sm font-bold text-gray-800">{s.name}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      <!-- Plantilla -->
+                      <div>
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">
+                          {t("federated.roster")}
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                          {team.players.map((player) => (
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-gray-100 hover:border-[#0073ce]/30 hover:bg-white transition-colors">
+                              <span class="w-8 h-8 rounded-full bg-[#0073ce] text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-xs">
+                                {player.num}
+                              </span>
+                              <span class="font-medium text-gray-800 text-sm">
+                                {player.name}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            <h4 class="text-lg font-semibold text-gray-800 mb-3">
-              {t("futsal.cat.senior.staff")}
-            </h4>
-            <ol class="list-decimal pl-5 space-y-1 mb-6">
-              <li>Jugador/a 1 (Posició)</li>
-              <li>... (Llistat complet de jugadors/es)</li>
-              <li>Entrenador Principal: Nom i Cognoms</li>
-              <li>Assistent/s: Nom i Cognoms</li>
-              <li>Delegat: Nom i Cognoms</li>
-            </ol>
+          );
+        })
+      }
 
-            <hr class="border-gray-200 my-6" />
-
-            <h3 class="text-2xl font-bold text-club-granate mb-4">
-              {t("futsal.cat.senior.2")}
-            </h3>
-            <div class="mb-6 rounded-lg overflow-hidden shadow-sm">
-              <!-- Placeholder for Team Photo -->
-              <div
-                class="bg-gray-100 w-full aspect-video flex items-center justify-center text-gray-400"
-              >
-                <span>{t("futsal.cat.senior.photo2")}</span>
-              </div>
-            </div>
-            <h4 class="text-lg font-semibold text-gray-800 mb-3">
-              {t("futsal.cat.senior.staff")}
-            </h4>
-            <p>{t("futsal.cat.senior.desc2")}</p>
-          </div>
-        </details>
-
-        <!-- Juvenils -->
-        <details
-          class="group bg-white rounded-lg border border-gray-200 shadow-sm open:shadow-md transition-shadow"
-        >
-          <summary
-            class="flex justify-between items-center w-full p-6 text-left cursor-pointer list-none text-lg font-bold text-gray-800 bg-white rounded-lg group-open:rounded-b-none group-open:bg-gray-50 hover:bg-gray-50 transition-colors"
-          >
-            <span>{t("futsal.cat.juvenil")}</span>
-            <span class="transition group-open:rotate-180">
-              <svg
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"><path d="M6 9l6 6 6-6"></path></svg
-              >
-            </span>
-          </summary>
-          <div
-            class="p-6 border-t border-gray-100 text-gray-600 animate-fadeIn"
-          >
-            <p>
-              {t("futsal.cat.juvenil.desc")}
-            </p>
-          </div>
-        </details>
-
-        <!-- Cadets -->
-        <details
-          class="group bg-white rounded-lg border border-gray-200 shadow-sm open:shadow-md transition-shadow"
-        >
-          <summary
-            class="flex justify-between items-center w-full p-6 text-left cursor-pointer list-none text-lg font-bold text-gray-800 bg-white rounded-lg group-open:rounded-b-none group-open:bg-gray-50 hover:bg-gray-50 transition-colors"
-          >
-            <span>{t("futsal.cat.cadet")}</span>
-            <span class="transition group-open:rotate-180">
-              <svg
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"><path d="M6 9l6 6 6-6"></path></svg
-              >
-            </span>
-          </summary>
-          <div
-            class="p-6 border-t border-gray-100 text-gray-600 animate-fadeIn"
-          >
-            <p>
-              {t("futsal.cat.cadet.desc")}
-            </p>
-          </div>
-        </details>
-
-        <!-- Infantils -->
-        <details
-          class="group bg-white rounded-lg border border-gray-200 shadow-sm open:shadow-md transition-shadow"
-        >
-          <summary
-            class="flex justify-between items-center w-full p-6 text-left cursor-pointer list-none text-lg font-bold text-gray-800 bg-white rounded-lg group-open:rounded-b-none group-open:bg-gray-50 hover:bg-gray-50 transition-colors"
-          >
-            <span>{t("futsal.cat.infantil")}</span>
-            <span class="transition group-open:rotate-180">
-              <svg
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"><path d="M6 9l6 6 6-6"></path></svg
-              >
-            </span>
-          </summary>
-          <div
-            class="p-6 border-t border-gray-100 text-gray-600 animate-fadeIn"
-          >
-            <p>{t("futsal.cat.infantil.desc")}</p>
-          </div>
-        </details>
-
-        <!-- Alevins -->
-        <details
-          class="group bg-white rounded-lg border border-gray-200 shadow-sm open:shadow-md transition-shadow"
-        >
-          <summary
-            class="flex justify-between items-center w-full p-6 text-left cursor-pointer list-none text-lg font-bold text-gray-800 bg-white rounded-lg group-open:rounded-b-none group-open:bg-gray-50 hover:bg-gray-50 transition-colors"
-          >
-            <span>{t("futsal.cat.alevi")}</span>
-            <span class="transition group-open:rotate-180">
-              <svg
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"><path d="M6 9l6 6 6-6"></path></svg
-              >
-            </span>
-          </summary>
-          <div
-            class="p-6 border-t border-gray-100 text-gray-600 animate-fadeIn"
-          >
-            <p>{t("futsal.cat.alevi.desc")}</p>
-          </div>
-        </details>
-
-        <!-- Benjamins -->
-        <details
-          class="group bg-white rounded-lg border border-gray-200 shadow-sm open:shadow-md transition-shadow"
-        >
-          <summary
-            class="flex justify-between items-center w-full p-6 text-left cursor-pointer list-none text-lg font-bold text-gray-800 bg-white rounded-lg group-open:rounded-b-none group-open:bg-gray-50 hover:bg-gray-50 transition-colors"
-          >
-            <span>{t("futsal.cat.benjamin")}</span>
-            <span class="transition group-open:rotate-180">
-              <svg
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"><path d="M6 9l6 6 6-6"></path></svg
-              >
-            </span>
-          </summary>
-          <div
-            class="p-6 border-t border-gray-100 text-gray-600 animate-fadeIn"
-          >
-            <p>
-              {t("futsal.cat.benjamin.desc")}
-            </p>
-          </div>
-        </details>
-
-        <!-- Veterans -->
-        <details
-          class="group bg-white rounded-lg border border-gray-200 shadow-sm open:shadow-md transition-shadow"
-        >
-          <summary
-            class="flex justify-between items-center w-full p-6 text-left cursor-pointer list-none text-lg font-bold text-gray-800 bg-white rounded-lg group-open:rounded-b-none group-open:bg-gray-50 hover:bg-gray-50 transition-colors"
-          >
-            <span>{t("futsal.cat.veterans")}</span>
-            <span class="transition group-open:rotate-180">
-              <svg
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"><path d="M6 9l6 6 6-6"></path></svg
-              >
-            </span>
-          </summary>
-          <div
-            class="p-6 border-t border-gray-100 text-gray-600 animate-fadeIn"
-          >
-            <p>{t("futsal.cat.veterans.desc")}</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="mt-12 text-center">
+      <!-- Bottom CTA -->
+      <div class="bg-[#07224f] text-white rounded-2xl p-8 md:p-12 text-center">
+        <h3 class="text-2xl md:text-3xl font-extrabold uppercase font-heading mb-4">
+          {t("cta.play_full")}
+        </h3>
+        <p class="text-blue-200 text-sm md:text-base max-w-2xl mx-auto mb-8">
+          Forma part del projecte esportiu del SD Espanyol Futbol Sala i defensa la samarreta blanc-i-blava a les categories federades.
+        </p>
         <a
           href={`/${lang}/inscripcions-2026-27`}
-          class="inline-block px-10 py-4 bg-club-granate text-white rounded-lg font-bold text-xl hover:bg-club-granate/90 hover:scale-105 transition-all shadow-lg"
+          class="inline-block px-8 py-4 bg-[#0073ce] hover:bg-[#005bac] text-white font-extrabold rounded-xl shadow-lg transition-transform hover:scale-105"
         >
-          {t("futsal.cta")}
+          INSCRIU-TE ARA ⚽
         </a>
       </div>
     </div>

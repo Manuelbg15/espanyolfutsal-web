@@ -11,28 +11,36 @@ const t = useTranslations(lang as any);
 ---
 
 <header
-  class="fixed w-full z-50 transition-all duration-300 bg-club-beige/95 backdrop-blur-md border-b border-club-gold/20 shadow-sm"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
 >
   <div
-    class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center gap-4"
+    class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex justify-between items-center gap-4"
   >
     <!-- LOGO (Left) -->
     <a
       href={`/${lang}/`}
-      class="hover:scale-105 transition-transform flex-shrink-0"
+      class="hover:scale-105 transition-transform flex items-center gap-3 flex-shrink-0"
     >
       <img
-        src="/images/logo-projecte.png"
-        alt="Club Esportiu Acadèmia"
-        class="h-14 w-auto drop-shadow-sm"
+        src="/images/escudo-espanyol.png"
+        alt="SD Espanyol Futbol Sala"
+        class="h-12 md:h-14 w-auto object-contain drop-shadow-sm"
       />
+      <div class="hidden sm:flex flex-col text-left">
+        <span class="font-extrabold text-[#0073ce] text-base md:text-lg leading-tight tracking-wider uppercase font-heading">
+          SD ESPANYOL
+        </span>
+        <span class="font-bold text-gray-800 text-xs md:text-sm tracking-widest uppercase">
+          FUTBOL SALA
+        </span>
+      </div>
     </a>
 
     <!-- DESKTOP NAV LINKS (Center) -->
-    <nav class="hidden xl:flex space-x-6 items-center justify-center flex-grow">
+    <nav class="hidden xl:flex space-x-5 items-center justify-center flex-grow">
       <a
         href={`/${lang}/`}
-        class="text-gray-800 hover:text-club-granate font-medium transition-colors"
+        class="text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors"
         >{t("nav.home")}</a
       >
 
@@ -40,11 +48,11 @@ const t = useTranslations(lang as any);
       <div class="relative group">
         <a
           href={`/${lang}/el-club`}
-          class="flex items-center text-gray-800 hover:text-club-granate font-medium transition-colors focus:outline-none"
+          class="flex items-center text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors py-2"
         >
           {t("nav.club")}
           <svg
-            class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform"
+            class="w-3.5 h-3.5 ml-1 transform group-hover:rotate-180 transition-transform text-gray-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -56,212 +64,181 @@ const t = useTranslations(lang as any);
           >
         </a>
         <div
-          class="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-100 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:-translate-y-1"
+          class="absolute top-full left-0 mt-1 w-60 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:-translate-y-1 p-2"
         >
-          <div class="py-2">
-            <a
-              href={`/${lang}/el-club#entitat`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.club.entity")}</a
-            >
-            <a
-              href={`/${lang}/el-club#projecte`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.club.project")}</a
-            >
-            <a
-              href={`/${lang}/el-club#objectius`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.club.objectives")}</a
-            >
-            <a
-              href={`/${lang}/el-club#valors`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.club.values")}</a
-            >
-            <a
-              href={`/${lang}/el-club#normativa`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.club.rules")}</a
-            >
-            <a
-              href={`/${lang}/el-club#instal-lacions`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.club.facilities")}</a
-            >
-            <a
-              href={`/${lang}/el-club#patrocinadors-seccio`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.club.sponsors")}</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- Dropdown Seccions -->
-      <div class="relative group">
-        <a
-          href={`/${lang}/seccions`}
-          class="flex items-center text-gray-800 hover:text-club-granate font-medium transition-colors focus:outline-none"
-        >
-          {t("nav.sections")}
-          <svg
-            class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"></path></svg
+          <a
+            href={`/${lang}/el-club#entitat`}
+            class="block px-3 py-2 text-gray-700 hover:text-[#0073ce] hover:bg-blue-50/50 rounded-lg text-sm font-medium transition-colors"
+            >{t("nav.club.entity")}</a
           >
-        </a>
-        <div
-          class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-100 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:-translate-y-1"
-        >
-          <div class="py-2">
-            <a
-              href={`/${lang}/seccions`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.sections.federated")}</a
-            >
-            <a
-              href={`/${lang}/extraescolars`}
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-club-granate hover:text-white transition-colors"
-              >{t("nav.sections.extracurricular")}</a
-            >
-          </div>
+          <a
+            href={`/${lang}/el-club#projecte`}
+            class="block px-3 py-2 text-gray-700 hover:text-[#0073ce] hover:bg-blue-50/50 rounded-lg text-sm font-medium transition-colors"
+            >{t("nav.club.project")}</a
+          >
+          <a
+            href={`/${lang}/el-club#objectius`}
+            class="block px-3 py-2 text-gray-700 hover:text-[#0073ce] hover:bg-blue-50/50 rounded-lg text-sm font-medium transition-colors"
+            >{t("nav.club.objectives")}</a
+          >
+          <a
+            href={`/${lang}/el-club#valors`}
+            class="block px-3 py-2 text-gray-700 hover:text-[#0073ce] hover:bg-blue-50/50 rounded-lg text-sm font-medium transition-colors"
+            >{t("nav.club.values")}</a
+          >
+          <a
+            href={`/${lang}/el-club#normativa`}
+            class="block px-3 py-2 text-gray-700 hover:text-[#0073ce] hover:bg-blue-50/50 rounded-lg text-sm font-medium transition-colors"
+            >{t("nav.club.rules")}</a
+          >
+          <a
+            href={`/${lang}/el-club#instal-lacions`}
+            class="block px-3 py-2 text-gray-700 hover:text-[#0073ce] hover:bg-blue-50/50 rounded-lg text-sm font-medium transition-colors"
+            >{t("nav.club.facilities")}</a
+          >
+          <a
+            href={`/${lang}/el-club#patrocinadors`}
+            class="block px-3 py-2 text-gray-700 hover:text-[#0073ce] hover:bg-blue-50/50 rounded-lg text-sm font-medium transition-colors"
+            >{t("nav.club.sponsors")}</a
+          >
+          <a
+            href={`/${lang}/el-club#enllacs-interes`}
+            class="block px-3 py-2 text-gray-700 hover:text-[#0073ce] hover:bg-blue-50/50 rounded-lg text-sm font-medium transition-colors"
+            >{t("nav.club.links")}</a
+          >
         </div>
       </div>
 
+      <!-- Futbol Sala Federat -->
+      <a
+        href={`/${lang}/seccions/futbol-sala`}
+        class="text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors whitespace-nowrap"
+        >{t("nav.federated")}</a
+      >
+
+      <!-- Futbol Sala Escolar -->
+      <a
+        href={`/${lang}/extraescolars`}
+        class="text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors whitespace-nowrap"
+        >{t("nav.school")}</a
+      >
+
+      <!-- Simpatitzant -->
+      <a
+        href={`/${lang}/simpatitzant`}
+        class="text-[#0073ce] hover:text-[#005bac] font-bold text-sm transition-colors whitespace-nowrap flex items-center gap-1"
+      >
+        <span>💙</span> {t("nav.simpatitzant")}
+      </a>
+
+      <!-- Campus -->
       <a
         href={`/${lang}/campus-esportius`}
-        class="text-gray-800 hover:text-club-granate font-medium transition-colors"
+        class="text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors"
         >{t("nav.campus")}</a
       >
+
+      <!-- Actualitat -->
       <a
         href={`/${lang}/actualitat`}
-        class="text-gray-800 hover:text-club-granate font-medium transition-colors"
+        class="text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors"
         >{t("nav.news")}</a
       >
+
+      <!-- Contacte -->
       <a
         href={`/${lang}/formcontacte`}
-        class="text-gray-800 hover:text-club-granate font-medium transition-colors"
+        class="text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors"
         >{t("nav.contact")}</a
       >
     </nav>
 
-    <!-- DESKTOP ACTIONS (Right) -->
-    <div class="hidden xl:flex items-center gap-4 flex-shrink-0">
+    <!-- RIGHT ACTIONS (Language + CTA) -->
+    <div class="hidden xl:flex items-center space-x-3 flex-shrink-0">
+      <!-- Language Picker -->
       <LanguagePicker />
 
-      <!-- Social Icons -->
-      <div class="flex items-center gap-3 border-r border-gray-300 pr-4">
-        <a
-          href="https://www.instagram.com/ce.academia"
-          target="_blank"
-          class="text-gray-600 hover:text-club-granate transition-colors"
-          title="Instagram"
-        >
-          <!-- Feather Icons: Instagram -->
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            viewBox="0 0 24 24"
-          >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/@ce.academia"
-          target="_blank"
-          class="text-gray-600 hover:text-club-granate transition-colors"
-          title="YouTube"
-        >
-          <!-- Feather Icons: YouTube -->
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"
-            ></path>
-            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
-            ></polygon>
-          </svg>
-        </a>
-      </div>
-
+      <!-- Socials -->
       <a
-        href="https://barcelonafutsalcup.es/"
+        href="https://www.instagram.com/sdespanyol_futsal"
         target="_blank"
-        class="flex items-center gap-2 text-gray-800 hover:text-club-granate font-bold transition-colors border-2 border-club-granate/10 px-4 py-2 rounded-lg hover:bg-club-granate hover:text-white hover:border-transparent whitespace-nowrap"
+        rel="noopener noreferrer"
+        class="p-2 text-gray-500 hover:text-[#0073ce] transition-colors"
+        aria-label="Instagram"
       >
-        <span class="text-lg">🏆</span>
-        {t("cta.futsal_cup")}
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
       </a>
 
+      <!-- CTA VOLS JUGAR AMB NOSALTRES (Always visible) -->
       <a
         href={`/${lang}/inscripcions-2026-27`}
-        class="bg-club-granate text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-club-granate/90 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap"
+        class="bg-[#0073ce] hover:bg-[#005bac] text-white px-4 py-2 rounded-full font-extrabold text-xs tracking-wider shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap flex items-center gap-1.5"
       >
-        {t("cta.play")}
+        <span>⚽</span>
+        <span>{t("cta.play_full")}</span>
       </a>
     </div>
 
-    <!-- Mobile Menu Button -->
-    <button class="xl:hidden text-gray-800 focus:outline-none" id="menu-btn">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
+    <!-- Mobile Menu Button & Small CTA -->
+    <div class="xl:hidden flex items-center gap-2">
+      <a
+        href={`/${lang}/inscripcions-2026-27`}
+        class="bg-[#0073ce] hover:bg-[#005bac] text-white px-3 py-1.5 rounded-full font-bold text-xs tracking-wider shadow transition-all whitespace-nowrap"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
+        {t("cta.play")}
+      </a>
+
+      <button
+        class="p-2 text-gray-800 hover:text-[#0073ce] focus:outline-none rounded-lg"
+        id="menu-btn"
+        aria-label="Menú"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile Menu -->
   <div
-    class="xl:hidden hidden bg-white/90 backdrop-blur-md absolute w-full border-b border-gray-200"
+    class="xl:hidden hidden bg-white/95 backdrop-blur-md border-b border-gray-200"
     id="mobile-menu"
   >
-    <div class="flex flex-col space-y-4 px-6 py-4 max-h-[80vh] overflow-y-auto">
-      <div class="flex justify-end mb-2">
+    <div class="flex flex-col space-y-3 px-6 py-4 max-h-[80vh] overflow-y-auto">
+      <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+        <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Idioma</span>
         <LanguagePicker />
       </div>
+
       <a
         href={`/${lang}/`}
-        class="text-gray-800 hover:text-club-granate font-medium"
+        class="text-gray-800 hover:text-[#0073ce] font-semibold py-1.5"
         >{t("nav.home")}</a
       >
 
       <!-- Collapsible El Club -->
       <details class="group">
         <summary
-          class="flex justify-between items-center w-full py-2 text-gray-800 font-medium cursor-pointer list-none hover:text-club-granate transition-colors"
+          class="flex justify-between items-center w-full py-1.5 text-gray-800 font-semibold cursor-pointer list-none hover:text-[#0073ce] transition-colors"
         >
           <span>{t("nav.club")}</span>
           <svg
-            class="w-4 h-4 transform group-open:rotate-180 transition-transform text-club-granate"
+            class="w-4 h-4 transform group-open:rotate-180 transition-transform text-[#0073ce]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -272,157 +249,120 @@ const t = useTranslations(lang as any);
               d="M19 9l-7 7-7-7"></path></svg
           >
         </summary>
-        <div class="space-y-2 pl-4 border-l-2 border-club-granate/20 mt-1 mb-2">
+        <div class="space-y-1.5 pl-4 border-l-2 border-[#0073ce]/30 mt-1 mb-2">
           <a
             href={`/${lang}/el-club#entitat`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
+            class="block text-gray-600 hover:text-[#0073ce] text-sm py-1"
             >{t("nav.club.entity")}</a
           >
           <a
             href={`/${lang}/el-club#projecte`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
+            class="block text-gray-600 hover:text-[#0073ce] text-sm py-1"
             >{t("nav.club.project")}</a
           >
           <a
             href={`/${lang}/el-club#objectius`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
+            class="block text-gray-600 hover:text-[#0073ce] text-sm py-1"
             >{t("nav.club.objectives")}</a
           >
           <a
             href={`/${lang}/el-club#valors`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
+            class="block text-gray-600 hover:text-[#0073ce] text-sm py-1"
             >{t("nav.club.values")}</a
           >
           <a
             href={`/${lang}/el-club#normativa`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
+            class="block text-gray-600 hover:text-[#0073ce] text-sm py-1"
             >{t("nav.club.rules")}</a
           >
           <a
             href={`/${lang}/el-club#instal-lacions`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
+            class="block text-gray-600 hover:text-[#0073ce] text-sm py-1"
             >{t("nav.club.facilities")}</a
           >
           <a
-            href={`/${lang}/el-club#patrocinadors-seccio`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
+            href={`/${lang}/el-club#patrocinadors`}
+            class="block text-gray-600 hover:text-[#0073ce] text-sm py-1"
             >{t("nav.club.sponsors")}</a
+          >
+          <a
+            href={`/${lang}/el-club#enllacs-interes`}
+            class="block text-gray-600 hover:text-[#0073ce] text-sm py-1"
+            >{t("nav.club.links")}</a
           >
         </div>
       </details>
 
-      <!-- Collapsible Seccions -->
-      <details class="group">
-        <summary
-          class="flex justify-between items-center w-full py-2 text-gray-800 font-medium cursor-pointer list-none hover:text-club-granate transition-colors"
-        >
-          <span>{t("nav.sections")}</span>
-          <svg
-            class="w-4 h-4 transform group-open:rotate-180 transition-transform text-club-granate"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"></path></svg
-          >
-        </summary>
-        <div class="space-y-2 pl-4 border-l-2 border-club-granate/20 mt-1 mb-2">
-          <a
-            href={`/${lang}/seccions`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
-            >{t("nav.sections.federated")}</a
-          >
-          <a
-            href={`/${lang}/extraescolars`}
-            class="block text-gray-600 hover:text-club-granate text-sm py-1"
-            >{t("nav.sections.extracurricular")}</a
-          >
-        </div>
-      </details>
+      <a
+        href={`/${lang}/seccions/futbol-sala`}
+        class="text-gray-800 hover:text-[#0073ce] font-semibold py-1.5"
+        >{t("nav.federated")}</a
+      >
+
+      <a
+        href={`/${lang}/extraescolars`}
+        class="text-gray-800 hover:text-[#0073ce] font-semibold py-1.5"
+        >{t("nav.school")}</a
+      >
+
+      <a
+        href={`/${lang}/simpatitzant`}
+        class="text-[#0073ce] font-bold py-1.5 flex items-center gap-1"
+        ><span>💙</span> {t("nav.simpatitzant")}</a
+      >
+
+      <a
+        href={`/${lang}/campus-esportius`}
+        class="text-gray-800 hover:text-[#0073ce] font-semibold py-1.5"
+        >{t("nav.campus")}</a
+      >
 
       <a
         href={`/${lang}/actualitat`}
-        class="text-gray-800 hover:text-club-granate font-medium"
+        class="text-gray-800 hover:text-[#0073ce] font-semibold py-1.5"
         >{t("nav.news")}</a
       >
+
       <a
-        href={`/${lang}/campus-esportius`}
-        class="text-gray-800 hover:text-club-granate font-medium"
-        >{t("nav.campus")}</a
+        href={`/${lang}/formcontacte`}
+        class="text-gray-800 hover:text-[#0073ce] font-semibold py-1.5"
+        >{t("nav.contact")}</a
       >
 
       <div class="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
         <a
           href={`/${lang}/inscripcions-2026-27`}
-          class="bg-club-granate text-white px-5 py-3 rounded-lg font-bold text-center shadow-sm"
+          class="bg-[#0073ce] hover:bg-[#005bac] text-white px-5 py-3 rounded-xl font-extrabold text-center shadow"
         >
           {t("cta.play_full")}
         </a>
 
-        <a
-          href="https://barcelonafutsalcup.es/"
-          target="_blank"
-          class="flex justify-center items-center gap-2 text-gray-800 font-bold border-2 border-club-granate/10 px-4 py-3 rounded-lg"
-        >
-          <span class="text-lg">🏆</span>
-          {t("cta.futsal_cup")}
-        </a>
-
-        <div class="flex justify-center gap-6 mt-2">
+        <div class="flex justify-center gap-6 mt-2 text-gray-500">
           <a
-            href="https://www.instagram.com/ce.academia"
+            href="https://www.instagram.com/sdespanyol_futsal"
             target="_blank"
-            class="text-gray-500 hover:text-club-granate"
+            rel="noopener noreferrer"
+            class="hover:text-[#0073ce] transition-colors"
           >
             <span class="sr-only">Instagram</span>
-            <!-- Mobile Feather Icon -->
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              viewBox="0 0 24 24"
-            >
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </a>
           <a
-            href="https://www.youtube.com/@ce.academia"
+            href="https://www.youtube.com/@SDEspanyolFutsal"
             target="_blank"
-            class="text-gray-500 hover:text-club-granate"
+            rel="noopener noreferrer"
+            class="hover:text-[#0073ce] transition-colors"
           >
             <span class="sr-only">YouTube</span>
-            <!-- Mobile Feather Icon -->
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"
-              ></path>
-              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
-              ></polygon>
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 01-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 01-1.768-1.768C2 15.255 2 12 2 12s0-3.254.419-4.813a2.503 2.503 0 011.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418zM15.194 12 10 15V9l5.194 3z" />
             </svg>
           </a>
         </div>
-
-        <a
-          href={`/${lang}/formcontacte`}
-          class="text-gray-800 hover:text-club-granate font-medium text-center mt-2"
-          >{t("nav.contact")}</a
-        >
       </div>
     </div>
   </div>

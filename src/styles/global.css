@@ -1,9 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-club-beige: #eadfcd;
-  --color-club-granate: #5d0001;
-  --color-club-gold: #da9f5c;
+  --color-club-blue: #0073ce;
+  --color-club-blue-dark: #005696;
+  --color-club-blue-light: #e8f4fd;
+  --color-club-navy: #07224f;
+  --color-club-accent: #00a3e0;
+  --color-club-gray: #f8fafc;
+  --color-club-white: #ffffff;
+
+  /* Color mapping for Espanyol blanquiblau branding */
+  --color-club-granate: #0073ce;
+  --color-club-gold: #00a3e0;
+  --color-club-beige: #f0f7ff;
 
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;

@@ -10,201 +10,225 @@ import { useTranslations } from "../../i18n/utils";
 const t = useTranslations(lang as any);
 
 const valores = [
-  {
-    t: t("club.values.1.t"),
-    d: t("club.values.1.d"),
-  },
-  {
-    t: t("club.values.2.t"),
-    d: t("club.values.2.d"),
-  },
-  {
-    t: t("club.values.3.t"),
-    d: t("club.values.3.d"),
-  },
-  {
-    t: t("club.values.4.t"),
-    d: t("club.values.4.d"),
-  },
-  {
-    t: t("club.values.5.t"),
-    d: t("club.values.5.d"),
-  },
-  {
-    t: t("club.values.6.t"),
-    d: t("club.values.6.d"),
-  },
-  {
-    t: t("club.values.7.t"),
-    d: t("club.values.7.d"),
-  },
-  {
-    t: t("club.values.8.t"),
-    d: t("club.values.8.d"),
-  },
+  { t: t("club.values.1.t"), d: t("club.values.1.d") },
+  { t: t("club.values.2.t"), d: t("club.values.2.d") },
+  { t: t("club.values.3.t"), d: t("club.values.3.d") },
+  { t: t("club.values.4.t"), d: t("club.values.4.d") },
+  { t: t("club.values.5.t"), d: t("club.values.5.d") },
+  { t: t("club.values.6.t"), d: t("club.values.6.d") },
+  { t: t("club.values.7.t"), d: t("club.values.7.d") },
+  { t: t("club.values.8.t"), d: t("club.values.8.d") },
 ];
 
-const instalaciones = [
-  "/images/instalacion-1.jpg",
-  "/images/instalacion-2.jpg",
-  "/images/instalacion-3.jpg",
+const jmPhotos = [
+  { src: "/images/instalacions/pavello-jm-1.jpg", alt: "Pavelló JM Sant Gervasi - Vista 1" },
+  { src: "/images/instalacions/pavello-jm-2.jpg", alt: "Pavelló JM Sant Gervasi - Vista 2" },
+  { src: "/images/instalacions/pista1-azul.jpg", alt: "Pista 1 Blau" },
+  { src: "/images/instalacions/pista2-arriba.jpg", alt: "Pista 2 Superior" },
+  { src: "/images/instalacions/pista3-anexa.jpg", alt: "Pista 3 Annexa" },
+];
+
+const xalocPhotos = [
+  { src: "/images/instalacions/pavello-xaloc-1.jpg", alt: "Pavelló Col·legi Xaloc - Interior" },
+  { src: "/images/instalacions/pavello-xaloc-2.jpg", alt: "Pavelló Col·legi Xaloc - Pista" },
+];
+
+const patrocinadors = [
+  { name: "EDELWEISS", desc: "Residència & Centre de Dia", url: "https://residenciasedelweiss.com/" },
+  { name: "NYO ENERGY", desc: "Energia Sostenible", url: "https://nyoenergy.es/" },
+  { name: "LMA", desc: "Gestió i Advocats", url: "https://www.lmatia.es/" },
+  { name: "FORTIUS", desc: "Sports Management", url: "https://www.fortiusports.com/", img: "/images/patrocinador-fortius.png" },
+  { name: "REPCAR VALLES", desc: "Tallers d'Automoció", url: "https://www.repcar.net/" },
+];
+
+const mitjans = [
+  { name: "PERICOS MARCA", url: "https://pericos.es/" },
+  { name: "FUTBOL IN!", url: "https://x.com/futbolin1900" },
+  { name: "LA GRADA", url: "https://lagrada.org/" },
+  { name: "EL 1900", url: "https://el1900.com/" },
 ];
 
 const linksEsportius = [
-  { img: "/images/logo-ceeb.png", link: "https://ceeb.cat/" },
-  { img: "/images/logo-fcf.png", link: "https://www.fcf.cat/" },
-  { img: "/images/logo-fcbq.png", link: "https://www.basquetcatala.cat/" },
-  { img: "/images/logo-fcvolei.png", link: "https://fcvolei.cat/" },
-  { img: "/images/logo-cehospitalet.png", link: "https://cehospitalet.org/" },
-  { img: "/images/logo-ucec.png", link: "https://www.ucec.cat/" },
+  { name: "Consell de l’Esport Escolar de Barcelona", img: "/images/logo-ceeb.png", link: "https://ceeb.cat/" },
+  { name: "Consell Esportiu de l’Hospitalet", img: "/images/logo-cehospitalet.png", link: "https://cehospitalet.org/" },
+  { name: "Consells Esportius de Catalunya", img: "/images/logo-ucec.png", link: "https://www.ucec.cat/" },
+  { name: "Federació Catalana de Futbol", img: "/images/logo-fcf.png", link: "https://www.fcf.cat/" },
 ];
 
 const linksLocals = [
-  { img: "/images/logo-bcn.webp", link: "https://ajuntament.barcelona.cat" },
-  { img: "/images/logo-lh.png", link: "https://www.l-h.cat" },
+  { name: "Ajuntament de Barcelona", img: "/images/logo-bcn.webp", link: "https://ajuntament.barcelona.cat" },
+  { name: "Ajuntament de L’Hospitalet", img: "/images/logo-lh.png", link: "https://www.l-h.cat" },
 ];
 ---
 
-<Layout title={`El Club | Club Esportiu Acadèmia`}>
+<Layout title={`El Club | SD Espanyol Futbol Sala`}>
   <!-- Hero Section -->
   <section
-    class="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden"
+    class="relative h-[55vh] min-h-[460px] flex items-center justify-center overflow-hidden"
   >
     <div class="absolute inset-0 z-0">
       <img
-        src="/images/el-club-hero.jpg"
-        alt="El Club Hero"
+        src="/images/instalacions/pavello-jm-1.jpg"
+        alt="Instal·lacions SD Espanyol Futbol Sala"
         class="w-full h-full object-cover"
       />
-      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07224f]/95 via-[#005bac]/85 to-[#07224f]/95"></div>
     </div>
-    <div class="relative z-10 text-center px-4">
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <img
+        src="/images/escudo-espanyol.png"
+        alt="Escudo SD Espanyol Futbol Sala"
+        class="h-20 w-auto mx-auto mb-4 drop-shadow-lg"
+      />
       <h1
-        class="text-5xl md:text-7xl font-extrabold text-white mb-4 uppercase font-heading tracking-tight"
+        class="text-4xl md:text-6xl font-extrabold text-white mb-4 uppercase font-heading tracking-tight"
       >
         {t("club.hero.title")}
       </h1>
-      <p class="text-xl md:text-2xl text-white font-medium tracking-wide">
+      <p class="text-lg md:text-xl text-blue-100 font-medium tracking-wide italic">
         {t("club.hero.subtitle")}
       </p>
     </div>
   </section>
 
-  <!-- L'Entitat -->
-  <section id="entitat" class="py-24 bg-gray-50">
+  <!-- 1. L'Entitat -->
+  <section id="entitat" class="py-24 bg-white">
     <div
-      class="max-w-4xl mx-auto px-6 text-justify leading-relaxed text-gray-700 space-y-8"
+      class="max-w-4xl mx-auto px-6 leading-relaxed text-gray-700 space-y-6"
     >
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center text-gray-900 uppercase font-heading text-club-granate"
-      >
-        {t("club.entity.title")}
-      </h2>
-      <p set:html={t("club.entity.p1")} />
-      <p set:html={t("club.entity.p2")} />
-
-      <div class="pt-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-4 font-heading">
-          {t("club.entity.subtitle")}
-        </h3>
-        <p set:html={t("club.entity.p3")} />
+      <div class="text-center mb-10">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Seccions Esportives Espanyol</span>
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase font-heading"
+        >
+          {t("club.entity.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mx-auto mt-3 rounded-full"></div>
       </div>
 
-      <p
-        class="text-center italic font-semibold text-lg text-club-granate pt-8 border-t border-gray-200"
-      >
-        {t("club.entity.quote")}
-      </p>
+      <p class="text-lg text-gray-800 leading-relaxed font-light" set:html={t("club.entity.p1")} />
+      <p class="text-base text-gray-700 leading-relaxed" set:html={t("club.entity.p2")} />
+      <p class="text-base text-gray-700 leading-relaxed" set:html={t("club.entity.p3")} />
+      <p class="text-base text-gray-700 leading-relaxed" set:html={t("club.entity.p4")} />
+
+      <div class="pt-6">
+        <blockquote
+          class="p-6 bg-blue-50/60 rounded-2xl border-l-4 border-[#0073ce] text-center italic font-semibold text-lg md:text-xl text-[#005bac]"
+        >
+          {t("club.project.motto")}
+        </blockquote>
+      </div>
     </div>
   </section>
 
-  <!-- Projecte i Filosofia -->
-  <section id="projecte" class="py-24 bg-white">
+  <!-- 2. Projecte i Filosofia -->
+  <section id="projecte" class="py-24 bg-slate-50 border-t border-gray-200">
     <div class="max-w-6xl mx-auto px-6">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center text-gray-900 uppercase font-heading mb-16"
-      >
-        {t("club.project.title")}
-      </h2>
-
-      <div class="grid md:grid-cols-2 gap-10">
-        <div
-          class="p-10 border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transition-shadow bg-white text-center"
+      <div class="text-center mb-16">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Filosofia Blanc-i-Blava</span>
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase font-heading"
         >
-          <h3 class="text-2xl font-bold mb-4 text-club-granate">
-            {t("club.project.mission.title")}
-          </h3>
-          <p class="text-gray-600 leading-relaxed">
-            {t("club.project.mission.desc")}
-          </p>
-        </div>
-
-        <div
-          class="p-10 border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transition-shadow bg-white text-center"
-        >
-          <h3 class="text-2xl font-bold mb-4 text-club-granate">
-            {t("club.project.vision.title")}
-          </h3>
-          <p
-            set:html={t("club.project.vision.desc")}
-            class="text-gray-600 leading-relaxed"
-          />
-        </div>
+          {t("club.project.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mx-auto mt-3 rounded-full"></div>
+        <p class="text-xl font-bold text-[#0073ce] mt-4 font-heading">
+          {t("club.project.subtitle")}
+        </p>
       </div>
 
-      <blockquote
-        class="text-center mt-16 text-2xl italic font-serif text-gray-400"
-      >
-        {t("club.project.quote")}
-      </blockquote>
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <!-- Missió -->
+        <div
+          class="p-8 md:p-10 bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-3xl">🎯</span>
+              <h3 class="text-2xl font-bold text-gray-900 uppercase font-heading">
+                {t("club.project.mission.title")}
+              </h3>
+            </div>
+            <ul class="space-y-3.5 text-gray-700 text-sm md:text-base">
+              <li class="flex items-start gap-2">
+                <span class="text-[#0073ce] font-bold">•</span>
+                <span>{t("club.project.mission.1")}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#0073ce] font-bold">•</span>
+                <span>{t("club.project.mission.2")}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#0073ce] font-bold">•</span>
+                <span>{t("club.project.mission.3")}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#0073ce] font-bold">•</span>
+                <span>{t("club.project.mission.4")}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#0073ce] font-bold">•</span>
+                <span>{t("club.project.mission.5")}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Visió -->
+        <div
+          class="p-8 md:p-10 bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-3xl">🔭</span>
+              <h3 class="text-2xl font-bold text-gray-900 uppercase font-heading">
+                {t("club.project.vision.title")}
+              </h3>
+            </div>
+            <p
+              class="text-gray-700 leading-relaxed text-base md:text-lg font-light"
+            >
+              {t("club.project.vision.desc")}
+            </p>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-gray-100">
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">El nostre lema</span>
+            <p class="font-extrabold text-[#0073ce] text-lg font-heading">
+              {t("club.project.motto")}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Objectius -->
+  <!-- 3. Objectius -->
   <section
     id="objectius"
-    class="py-24 bg-club-beige/20 border-y border-club-beige/30"
+    class="py-24 bg-white border-t border-gray-200"
   >
     <div class="max-w-5xl mx-auto px-6">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center text-gray-900 uppercase font-heading mb-12"
-      >
-        {t("club.objectives.title")}
-      </h2>
-
-      <div
-        class="grid md:grid-cols-2 gap-12 text-lg text-gray-700 leading-relaxed"
-      >
-        <ul class="list-disc pl-6 space-y-4 marker:text-club-gold">
-          <li>{t("club.objectives.list1")}</li>
-          <li>{t("club.objectives.list2")}</li>
-          <li>{t("club.objectives.list3")}</li>
-          <li>{t("club.objectives.list4")}</li>
-        </ul>
-        <ul class="list-disc pl-6 space-y-4 marker:text-club-gold">
-          <li>{t("club.objectives.list5")}</li>
-          <li>{t("club.objectives.list6")}</li>
-          <li>{t("club.objectives.list7")}</li>
-        </ul>
+      <div class="text-center mb-16">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Horitzó i Fites</span>
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase font-heading"
+        >
+          {t("club.objectives.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mx-auto mt-3 rounded-full"></div>
       </div>
-    </div>
-  </section>
 
-  <!-- Valors -->
-  <section id="valors" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center text-gray-900 uppercase font-heading mb-16"
-      >
-        {t("club.values.title")}
-      </h2>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="space-y-4">
         {
-          valores.map((v) => (
-            <div class="p-8 bg-gray-50 rounded-xl border border-club-granate/10 hover:border-club-gold/50 transition-colors">
-              <h4 class="text-xl font-bold mb-3 text-club-granate">{v.t}</h4>
-              <p class="text-gray-600 text-sm leading-relaxed">{v.d}</p>
+          [1, 2, 3, 4, 5, 6, 7].map((num) => (
+            <div class="p-6 bg-slate-50 rounded-xl border border-gray-100 flex items-start gap-4 hover:border-[#0073ce]/40 transition-colors">
+              <span class="w-8 h-8 rounded-full bg-[#0073ce] text-white flex-shrink-0 flex items-center justify-center font-bold text-sm">
+                {num}
+              </span>
+              <p class="text-gray-800 text-sm md:text-base leading-relaxed">
+                {t(`club.objectives.${num}` as any)}
+              </p>
             </div>
           ))
         }
@@ -212,148 +236,283 @@ const linksLocals = [
     </div>
   </section>
 
-  <!-- Normativa -->
-  <section id="normativa" class="py-20 bg-gray-50">
+  <!-- 4. Valors -->
+  <section id="valors" class="py-24 bg-slate-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Principis Humans i Esportius</span>
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase font-heading"
+        >
+          {t("club.values.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          valores.map((v) => (
+            <div class="p-7 bg-white rounded-2xl border border-gray-200/80 hover:border-[#0073ce] shadow-sm hover:shadow-md transition-all flex flex-col justify-start">
+              <h4 class="text-base font-bold mb-3 text-[#0073ce] font-heading">{v.t}</h4>
+              <p class="text-gray-600 text-xs md:text-sm leading-relaxed">{v.d}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Normativa General -->
+  <section id="normativa" class="py-20 bg-white border-t border-gray-200">
     <div class="max-w-4xl mx-auto px-6 text-center">
+      <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Transparència i Protecció</span>
       <h2
-        class="text-3xl md:text-4xl font-bold text-gray-900 uppercase font-heading mb-8"
+        class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase font-heading mb-4"
       >
         {t("club.rules.title")}
       </h2>
-      <p class="text-xl text-gray-600 mb-10">
+      <div class="w-16 h-1 bg-[#0073ce] mx-auto mb-6 rounded-full"></div>
+      <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
         {t("club.rules.desc")}
       </p>
-      <a
-        href="https://drive.google.com/file/d/1f8S_5xLmeD1I6HCfRsCqfEiXDlv6n-9S/view?usp=sharing"
-        target="_blank"
-        class="inline-block px-8 py-4 bg-club-granate text-white rounded-lg font-bold hover:bg-gray-900 transition-colors shadow-lg"
-      >
-        {t("club.rules.btn")}
-      </a>
-    </div>
-  </section>
 
-  <!-- Instalaciones -->
-  <section id="instal-lacions" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-gray-900 uppercase font-heading mb-16"
-      >
-        {t("club.facilities.title")}
-      </h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        {
-          instalaciones.map((img) => (
-            <div class="aspect-[4/3] overflow-hidden rounded-xl shadow-md cursor-pointer group">
-              <img
-                src={img}
-                alt="Instal·lació"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            </div>
-          ))
-        }
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/documents/Reglamento General SD Espanyol.pdf"
+          target="_blank"
+          download
+          class="inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#0073ce] hover:bg-[#005bac] text-white rounded-xl font-bold transition-all shadow-md text-sm md:text-base"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          {t("club.rules.general_btn")}
+        </a>
+        <a
+          href="/documents/Protocol_Proteccio_Espanyol_Sentiment_Perico.pdf"
+          target="_blank"
+          download
+          class="inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#07224f] hover:bg-gray-900 text-white rounded-xl font-bold transition-all shadow-md text-sm md:text-base"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          {t("club.rules.protocol_btn")}
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Patrocinadores -->
-  <section id="patrocinadors-seccio" class="py-24 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center text-gray-900 uppercase font-heading mb-12"
-      >
-        {t("club.sponsors.title")}
-      </h2>
-      <div class="flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-5/12 flex justify-center">
-          <a
-            href="https://www.instagram.com/fortiusports_/"
-            target="_blank"
-            class="block hover:opacity-80 transition-opacity"
-          >
-            <img
-              src="/images/patrocinador-fortius.png"
-              alt="Fortius Sports"
-              class="w-64 h-auto rounded-xl"
-            />
-          </a>
-        </div>
-        <div class="md:w-7/12 text-center md:text-left">
-          <p class="text-lg text-gray-700 mb-6">
-            {t("club.sponsors.text")}
-          </p>
-          <ul class="font-bold text-club-granate text-xl">
-            <li>
-              <a
-                href="https://www.instagram.com/fortiusports_/"
-                class="hover:underline">FORTIUS SPORTS S.L.</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Enlaces de Interés -->
-  <section id="enllacs-interes" class="py-24 bg-white">
+  <!-- 6. Instal·lacions -->
+  <section id="instal-lacions" class="py-24 bg-slate-50 border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-6">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center text-gray-900 uppercase font-heading mb-16"
-      >
-        {t("club.links.title")}
-      </h2>
+      <div class="text-center mb-16">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">On s'entrena i competeix</span>
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase font-heading"
+        >
+          {t("club.facilities.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mx-auto mt-3 rounded-full"></div>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+          {t("club.facilities.subtitle")}
+        </p>
+      </div>
 
-      <div class="grid md:grid-cols-2 gap-16">
-        <div>
-          <h3
-            class="text-xl font-bold text-center mb-8 uppercase text-gray-500 tracking-widest"
-          >
-            {t("club.links.sports")}
-          </h3>
-          <div
-            class="grid grid-cols-2 sm:grid-cols-3 gap-8 items-center justify-items-center"
-          >
-            {
-              linksEsportius.map((l) => (
-                <a
-                  href={l.link}
-                  target="_blank"
-                  class="block opacity-70 hover:opacity-100 transition-opacity transform hover:scale-105"
-                >
-                  <img
-                    src={l.img}
-                    alt="Link Esportiu"
-                    class="max-h-20 w-auto"
-                  />
-                </a>
-              ))
-            }
+      <!-- Instal·lació 1: Club Esportiu JM Sant Gervasi -->
+      <div class="mb-16 bg-white p-8 md:p-10 rounded-2xl border border-gray-200 shadow-sm">
+        <div class="flex flex-col md:flex-row justify-between md:items-center mb-8 gap-4 border-b border-gray-100 pb-6">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 font-heading">
+              {t("club.facility1.name")}
+            </h3>
+            <p class="text-gray-600 text-sm mt-1">
+              📍 {t("club.facility1.address")}
+            </p>
           </div>
+          <span class="inline-block bg-blue-50 text-[#0073ce] text-xs font-bold px-4 py-2 rounded-full uppercase">
+            {t("club.facility1.pistas")}
+          </span>
         </div>
 
-        <div>
-          <h3
-            class="text-xl font-bold text-center mb-8 uppercase text-gray-500 tracking-widest"
-          >
-            {t("club.links.locals")}
-          </h3>
-          <div
-            class="flex flex-col sm:flex-row gap-8 items-center justify-center"
-          >
-            {
-              linksLocals.map((l) => (
-                <a
-                  href={l.link}
-                  target="_blank"
-                  class="block opacity-70 hover:opacity-100 transition-opacity transform hover:scale-105"
-                >
-                  <img src={l.img} alt="Link Local" class="max-h-24 w-auto" />
-                </a>
-              ))
-            }
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {
+            jmPhotos.map((photo) => (
+              <div class="aspect-[4/3] overflow-hidden rounded-xl shadow-sm cursor-pointer group bg-gray-100">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Instal·lació 2: Pavelló Col·legi Xaloc -->
+      <div class="bg-white p-8 md:p-10 rounded-2xl border border-gray-200 shadow-sm">
+        <div class="flex flex-col md:flex-row justify-between md:items-center mb-8 gap-4 border-b border-gray-100 pb-6">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 font-heading">
+              {t("club.facility2.name")}
+            </h3>
+            <p class="text-gray-600 text-sm mt-1">
+              📍 {t("club.facility2.address")}
+            </p>
           </div>
+          <span class="inline-block bg-blue-50 text-[#0073ce] text-xs font-bold px-4 py-2 rounded-full uppercase">
+            {t("club.facility2.pistas")}
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {
+            xalocPhotos.map((photo) => (
+              <div class="aspect-[16/10] overflow-hidden rounded-xl shadow-sm cursor-pointer group bg-gray-100">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Patrocinadors i Mitjans de Comunicació -->
+  <section id="patrocinadors" class="py-24 bg-white border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Col·laboradors i Suport</span>
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase font-heading"
+        >
+          {t("club.sponsors.title")} & {t("club.media.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <!-- Patrocinadors -->
+      <div class="mb-14">
+        <h3 class="text-xl font-bold text-gray-800 mb-6 text-center uppercase tracking-wider font-heading">
+          {t("club.sponsors.title")}
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {
+            patrocinadors.map((p) => (
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-slate-50 p-6 rounded-2xl border border-gray-200 hover:border-[#0073ce] hover:bg-white shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-center items-center group"
+              >
+                {p.img ? (
+                  <img src={p.img} alt={p.name} class="h-10 w-auto object-contain mb-3" />
+                ) : null}
+                <span class="font-extrabold text-gray-900 group-hover:text-[#0073ce] transition-colors text-base font-heading">
+                  {p.name}
+                </span>
+                <span class="text-xs text-gray-500 mt-1">{p.desc}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Mitjans de Comunicació -->
+      <div>
+        <h3 class="text-xl font-bold text-gray-800 mb-6 text-center uppercase tracking-wider font-heading">
+          {t("club.media.title")}
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {
+            mitjans.map((m) => (
+              <a
+                href={m.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-slate-50 p-5 rounded-2xl border border-gray-200 hover:border-[#0073ce] hover:bg-white shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-center items-center group"
+              >
+                <span class="font-extrabold text-gray-900 group-hover:text-[#0073ce] transition-colors text-sm font-heading">
+                  {m.name}
+                </span>
+                <span class="text-xs text-gray-400 mt-1">Premsa & Notícies</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Enllaços d'Interès -->
+  <section id="enllacs-interes" class="py-24 bg-slate-50 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Institucions</span>
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-gray-900 uppercase font-heading"
+        >
+          {t("club.interest_links.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <!-- Esportius -->
+      <div class="mb-12">
+        <h3 class="text-lg font-bold text-gray-700 uppercase tracking-wider mb-6 text-center">
+          {t("club.links.sports")}
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+          {
+            linksEsportius.map((item) => (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#0073ce] transition-all flex flex-col items-center justify-center gap-3 text-center h-40 group"
+              >
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  class="max-h-16 w-auto object-contain transition-transform group-hover:scale-105"
+                />
+                <span class="text-xs font-semibold text-gray-600 group-hover:text-[#0073ce] transition-colors line-clamp-2">
+                  {item.name}
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Locals -->
+      <div>
+        <h3 class="text-lg font-bold text-gray-700 uppercase tracking-wider mb-6 text-center">
+          {t("club.links.locals")}
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mx-auto items-center">
+          {
+            linksLocals.map((item) => (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#0073ce] transition-all flex flex-col items-center justify-center gap-3 text-center h-40 group"
+              >
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  class="max-h-16 w-auto object-contain transition-transform group-hover:scale-105"
+                />
+                <span class="text-xs font-semibold text-gray-600 group-hover:text-[#0073ce] transition-colors">
+                  {item.name}
+                </span>
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>

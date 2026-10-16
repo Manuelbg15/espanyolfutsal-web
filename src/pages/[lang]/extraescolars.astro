@@ -10,35 +10,39 @@ import { useTranslations } from "../../i18n/utils";
 const t = useTranslations(lang as any);
 ---
 
-<Layout title={`Extraescolars | Club Esportiu Acadèmia`}>
+<Layout title={`Futbol Sala Escolar | SD Espanyol Futbol Sala`}>
   <!-- Hero Section -->
   <section
-    class="relative h-[50vh] min-h-[450px] flex items-center justify-center overflow-hidden"
+    class="relative h-[50vh] min-h-[420px] flex items-center justify-center overflow-hidden"
   >
     <div class="absolute inset-0 z-0">
       <img
-        src="/images/extraescolars-hero.png"
-        alt="Extraescolars Hero"
+        src="/images/instalacions/pista1-azul.jpg"
+        alt="Futbol Sala Escolar SD Espanyol"
         class="w-full h-full object-cover"
       />
-      <!-- OVERLAY: #734c40 with opacity -->
-      <div class="absolute inset-0 bg-[#734c40]/70"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07224f]/95 via-[#005bac]/85 to-[#07224f]/95"></div>
     </div>
 
     <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <img
+        src="/images/escudo-espanyol.png"
+        alt="Escut SD Espanyol Futbol Sala"
+        class="h-16 w-auto mx-auto mb-4 drop-shadow-md"
+      />
       <h1
-        class="text-5xl md:text-7xl font-extrabold text-white mb-6 uppercase font-heading tracking-tight"
+        class="text-4xl md:text-6xl font-extrabold text-white mb-4 uppercase font-heading tracking-tight"
       >
         {t("extra.hero.title")}
       </h1>
-      <p class="text-xl md:text-2xl text-white font-medium tracking-wide">
+      <p class="text-lg md:text-xl text-blue-100 font-medium tracking-wide">
         {t("extra.hero.subtitle")}
       </p>
     </div>
   </section>
 
   <!-- Intro Section -->
-  <section class="py-20 bg-white">
+  <section class="py-16 bg-white">
     <div
       class="max-w-4xl mx-auto px-6 text-center text-lg md:text-xl text-gray-700 space-y-4 font-light leading-relaxed"
     >
@@ -52,134 +56,150 @@ const t = useTranslations(lang as any);
   </section>
 
   <!-- Col·legi 1 -->
-  <section class="py-24 bg-gray-50 border-t border-gray-200">
+  <section class="py-20 bg-slate-50 border-t border-gray-200">
     <div class="max-w-5xl mx-auto px-6">
-      <h2
-        class="text-3xl font-bold text-gray-900 mb-4 uppercase text-club-granate"
-      >
-        {t("extra.school1.title")}
-      </h2>
-      <p class="text-gray-600 mb-8 max-w-2xl">
-        {t("extra.school1.desc")}
-      </p>
+      <div class="mb-8">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Centre Educatiu</span>
+        <h2
+          class="text-3xl font-extrabold text-gray-900 uppercase font-heading"
+        >
+          {t("extra.school1.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mt-2 mb-4 rounded-full"></div>
+        <p class="text-gray-600">
+          {t("extra.school1.desc")}
+        </p>
+      </div>
 
       <h3
-        class="text-xl font-bold text-gray-800 mb-6 border-b border-gray-200 pb-2"
+        class="text-lg font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2 uppercase tracking-wide font-heading"
       >
         {t("extra.activities.title")}
       </h3>
 
-      <div class="overflow-x-auto shadow-sm rounded-lg">
-        <table class="w-full text-left bg-white rounded-lg overflow-hidden">
-          <thead class="bg-club-granate text-white">
+      <div class="overflow-x-auto shadow-sm rounded-xl border border-gray-200">
+        <table class="w-full text-left bg-white rounded-xl overflow-hidden">
+          <thead class="bg-[#0073ce] text-white">
             <tr>
-              <th class="p-4 rounded-tl-lg">{t("extra.table.activity")}</th>
-              <th class="p-4">{t("extra.table.course")}</th>
-              <th class="p-4">{t("extra.table.days")}</th>
-              <th class="p-4 rounded-tr-lg">{t("extra.table.schedule")}</th>
+              <th class="p-4 font-bold text-sm tracking-wider uppercase">{t("extra.table.activity")}</th>
+              <th class="p-4 font-bold text-sm tracking-wider uppercase">{t("extra.table.course")}</th>
+              <th class="p-4 font-bold text-sm tracking-wider uppercase">{t("extra.table.days")}</th>
+              <th class="p-4 font-bold text-sm tracking-wider uppercase">{t("extra.table.schedule")}</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-gray-100">
-            <tr class="hover:bg-gray-50">
-              <td class="p-4 font-semibold text-gray-900">Futbol Sala</td>
-              <td class="p-4 text-gray-600">Primària (1r a 6è)</td>
+          <tbody class="divide-y divide-gray-100 text-sm">
+            <tr class="hover:bg-blue-50/40 transition-colors">
+              <td class="p-4 font-bold text-gray-900 flex items-center gap-2">
+                <span>⚽</span> Futbol Sala Primària
+              </td>
+              <td class="p-4 text-gray-600">1r a 3r de Primària</td>
               <td class="p-4 text-gray-600">Dilluns i Dimecres</td>
-              <td class="p-4 text-gray-600 font-mono text-sm"
-                >17:00h - 18:30h</td
-              >
+              <td class="p-4 text-gray-800 font-mono font-medium">16:45h - 18:00h</td>
             </tr>
-            <tr class="hover:bg-gray-50 bg-gray-50/30">
-              <td class="p-4 font-semibold text-gray-900">Bàsquet</td>
-              <td class="p-4 text-gray-600">ESO (1r a 4t)</td>
+            <tr class="hover:bg-blue-50/40 bg-slate-50/50 transition-colors">
+              <td class="p-4 font-bold text-gray-900 flex items-center gap-2">
+                <span>⚽</span> Futbol Sala Superior
+              </td>
+              <td class="p-4 text-gray-600">4t a 6è de Primària</td>
               <td class="p-4 text-gray-600">Dimarts i Dijous</td>
-              <td class="p-4 text-gray-600 font-mono text-sm"
-                >18:30h - 20:00h</td
-              >
+              <td class="p-4 text-gray-800 font-mono font-medium">16:45h - 18:00h</td>
             </tr>
-            <tr class="hover:bg-gray-50">
-              <td class="p-4 font-semibold text-gray-900">Ball Esportiu</td>
-              <td class="p-4 text-gray-600">Infantil i Primària</td>
+            <tr class="hover:bg-blue-50/40 transition-colors">
+              <td class="p-4 font-bold text-gray-900 flex items-center gap-2">
+                <span>⚽</span> Iniciació Pre-Esport Futsal
+              </td>
+              <td class="p-4 text-gray-600">I4 i I5 Infantil</td>
               <td class="p-4 text-gray-600">Divendres</td>
-              <td class="p-4 text-gray-600 font-mono text-sm"
-                >17:00h - 18:00h</td
-              >
-            </tr>
-            <tr class="hover:bg-gray-50 bg-gray-50/30">
-              <td class="p-4 font-semibold text-gray-900">Multiesport</td>
-              <td class="p-4 text-gray-600">P3 a P5</td>
-              <td class="p-4 text-gray-600">Dimarts i Dijous</td>
-              <td class="p-4 text-gray-600 font-mono text-sm"
-                >17:00h - 18:00h</td
-              >
+              <td class="p-4 text-gray-800 font-mono font-medium">16:45h - 17:45h</td>
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="mt-6 text-right">
+        <a
+          href={`/${lang}/inscripcions-2026-27`}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[#0073ce] hover:bg-[#005bac] text-white font-bold text-sm rounded-xl shadow-md transition-all"
+        >
+          <span>✍️</span> INSCRIURE'S A EXTRAESCOLARS
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Col·legi 2 -->
-  <section class="py-24 bg-white border-t border-gray-200">
+  <section class="py-20 bg-white border-t border-gray-200">
     <div class="max-w-5xl mx-auto px-6">
-      <h2
-        class="text-3xl font-bold text-gray-900 mb-4 uppercase text-club-granate"
-      >
-        {t("extra.school2.title")}
-      </h2>
-      <p class="text-gray-600 mb-8 max-w-2xl">
-        {t("extra.school2.desc")}
-      </p>
+      <div class="mb-8">
+        <span class="text-[#0073ce] font-bold text-xs uppercase tracking-widest block mb-1">Centre Educatiu</span>
+        <h2
+          class="text-3xl font-extrabold text-gray-900 uppercase font-heading"
+        >
+          {t("extra.school2.title")}
+        </h2>
+        <div class="w-16 h-1 bg-[#0073ce] mt-2 mb-4 rounded-full"></div>
+        <p class="text-gray-600">
+          {t("extra.school2.desc")}
+        </p>
+      </div>
 
       <h3
-        class="text-xl font-bold text-gray-800 mb-6 border-b border-gray-200 pb-2"
+        class="text-lg font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2 uppercase tracking-wide font-heading"
       >
         {t("extra.activities.title")}
       </h3>
 
-      <div class="overflow-x-auto shadow-sm rounded-lg">
-        <table
-          class="w-full text-left bg-white rounded-lg overflow-hidden border border-gray-100"
-        >
-          <thead class="bg-gray-800 text-white">
+      <div class="overflow-x-auto shadow-sm rounded-xl border border-gray-200">
+        <table class="w-full text-left bg-white rounded-xl overflow-hidden">
+          <thead class="bg-[#07224f] text-white">
             <tr>
-              <th class="p-4 rounded-tl-lg">{t("extra.table.activity")}</th>
-              <th class="p-4">{t("extra.table.course")}</th>
-              <th class="p-4">{t("extra.table.days")}</th>
-              <th class="p-4 rounded-tr-lg">{t("extra.table.schedule")}</th>
+              <th class="p-4 font-bold text-sm tracking-wider uppercase">{t("extra.table.activity")}</th>
+              <th class="p-4 font-bold text-sm tracking-wider uppercase">{t("extra.table.course")}</th>
+              <th class="p-4 font-bold text-sm tracking-wider uppercase">{t("extra.table.days")}</th>
+              <th class="p-4 font-bold text-sm tracking-wider uppercase">{t("extra.table.schedule")}</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-gray-100">
-            <tr class="hover:bg-gray-50">
-              <td class="p-4 font-semibold text-gray-900">Voleibol</td>
-              <td class="p-4 text-gray-600">ESO i Batxillerat</td>
+          <tbody class="divide-y divide-gray-100 text-sm">
+            <tr class="hover:bg-blue-50/40 transition-colors">
+              <td class="p-4 font-bold text-gray-900 flex items-center gap-2">
+                <span>⚽</span> Futbol Sala Escolar
+              </td>
+              <td class="p-4 text-gray-600">Primària i Secundària</td>
               <td class="p-4 text-gray-600">Dilluns i Dimecres</td>
-              <td class="p-4 text-gray-600 font-mono text-sm"
-                >17:30h - 19:00h</td
-              >
+              <td class="p-4 text-gray-800 font-mono font-medium">17:00h - 18:30h</td>
             </tr>
-            <tr class="hover:bg-gray-50 bg-gray-50/30">
-              <td class="p-4 font-semibold text-gray-900">Futbol Sala</td>
-              <td class="p-4 text-gray-600">Cicle Superior Primària</td>
-              <td class="p-4 text-gray-600">Dimarts i Dijous</td>
-              <td class="p-4 text-gray-600 font-mono text-sm"
-                >17:00h - 18:30h</td
-              >
+            <tr class="hover:bg-blue-50/40 bg-slate-50/50 transition-colors">
+              <td class="p-4 font-bold text-gray-900 flex items-center gap-2">
+                <span>⚽</span> Tecnificació Escolar
+              </td>
+              <td class="p-4 text-gray-600">Tots els nivells</td>
+              <td class="p-4 text-gray-600">Divendres</td>
+              <td class="p-4 text-gray-800 font-mono font-medium">17:00h - 18:30h</td>
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="mt-6 text-right">
+        <a
+          href={`/${lang}/inscripcions-2026-27`}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[#07224f] hover:bg-gray-900 text-white font-bold text-sm rounded-xl shadow-md transition-all"
+        >
+          <span>✍️</span> INSCRIURE'S A EXTRAESCOLARS
+        </a>
       </div>
     </div>
   </section>
 
   <!-- CTA Contacte -->
-  <section class="py-16 bg-club-beige/20 border-t border-gray-200">
+  <section class="py-16 bg-blue-50/60 border-t border-gray-200">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 uppercase">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-6 uppercase font-heading">
         {t("extra.cta.title")}
       </h2>
       <a
         href={`/${lang}/formcontacte`}
-        class="inline-block px-10 py-5 bg-club-granate text-white rounded-lg font-bold text-lg hover:bg-club-granate/90 hover:scale-105 transition-all shadow-lg"
+        class="inline-block px-10 py-5 bg-[#0073ce] text-white rounded-xl font-extrabold text-lg hover:bg-[#005bac] hover:scale-105 transition-all shadow-lg"
       >
         {t("extra.cta.btn")}
       </a>

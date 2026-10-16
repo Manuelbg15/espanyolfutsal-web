@@ -2,15 +2,18 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-import "../styles/animations.css"; // Ensure global styles are imported if needed, though Tailwind might be injected via integration
-// Actually standard 'basics' template includes Layout. Let's see if I should just use vanilla styles or if 'global.css' exists.
-// I'll stick to defining basics here.
+import "../styles/animations.css";
 
 interface Props {
-	title: string;
+	title?: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title = "SD Espanyol Futbol Sala | Pàgina Oficial",
+	description = "SD Espanyol Futbol Sala - Més que un equip, un sentiment periquito també a la pista. Informació, equips federats, activitats escolars i inscripcions."
+} = Astro.props;
+
 import { getLangFromUrl } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -19,12 +22,9 @@ const lang = getLangFromUrl(Astro.url);
 <html lang={lang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Club Esportiu Academia - Tu lugar para el deporte"
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/images/logo-projecte.png" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
@@ -47,8 +47,8 @@ const lang = getLangFromUrl(Astro.url);
 		class="bg-slate-50 font-sans text-gray-900 antialiased min-h-screen flex flex-col"
 	>
 		<Header lang={lang} />
-		<main class="flex-grow pt-16">
-			<!-- pt-16 to account for fixed header -->
+		<main class="flex-grow pt-20">
+			<!-- pt-20 to account for fixed header -->
 			<slot />
 		</main>
 		<Footer lang={lang} />
@@ -58,7 +58,7 @@ const lang = getLangFromUrl(Astro.url);
 			AOS.init({
 				duration: 800,
 				once: true,
-				offset: 100,
+				offset: 80,
 				easing: "ease-out-cubic",
 			});
 		</script>
