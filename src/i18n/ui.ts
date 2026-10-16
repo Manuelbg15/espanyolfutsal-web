@@ -17,6 +17,7 @@ export const ui = {
     'nav.news': 'Actualitat',
     'nav.store': 'Botiga Online',
     'nav.contact': 'Contacte',
+    'nav.cup': 'Futsal CUP',
 
     // Dropdown El Club
     'nav.club.entity': "L'Entitat",
@@ -83,6 +84,9 @@ export const ui = {
     'home.intro.title': 'BENVINGUTS A L\'ESPANYOL FUTSAL',
     'home.intro.desc': 'El projecte de futbol sala de l\'Espanyol neix dins de les Seccions Esportives Espanyol amb l\'objectiu de recuperar i desenvolupar la disciplina vinculada al sentiment periquito. T\'esperem a la pista!',
 
+    'home.cup.title': 'BARCELONA FUTSAL CUP 2027',
+    'home.cup.desc': "No és només un torneig, és l'experiència esportiva definitiva en una de les ciutats més vibrants del món. Tres dies de competició, convivència i creixement per a equips masculins i femenins Infantils (2014–2015).",
+    'home.cup.cta': 'TOTA LA INFORMACIÓ I INSCRIPCIONS',
     'home.sections.title': 'ACTIVITATS I SECCIONS',
     'home.sections.subtitle': 'Coneix tota la nostra oferta esportiva i formativa',
     'home.sections.federat.title': 'FUTBOL SALA FEDERAT',
@@ -309,6 +313,7 @@ export const ui = {
     'nav.news': 'Actualidad',
     'nav.store': 'Tienda Online',
     'nav.contact': 'Contacto',
+    'nav.cup': 'Futsal CUP',
 
     // Dropdown El Club
     'nav.club.entity': 'La Entidad',
@@ -375,6 +380,9 @@ export const ui = {
     'home.intro.title': 'BIENVENIDOS AL ESPANYOL FUTSAL',
     'home.intro.desc': 'El proyecto de fútbol sala del Espanyol nace dentro de las Seccions Esportives Espanyol con el objetivo de recuperar y desarrollar la disciplina vinculada al sentimiento perico. ¡Te esperamos en la pista!',
 
+    'home.cup.title': 'BARCELONA FUTSAL CUP 2027',
+    'home.cup.desc': 'No es solo un torneo, es la experiencia deportiva definitiva en una de las ciudades más vibrantes del mundo. Tres días de competición, convivencia y crecimiento para equipos masculinos y femeninos Infantiles (2014–2015).',
+    'home.cup.cta': 'TODA LA INFORMACIÓN E INSCRIPCIONES',
     'home.sections.title': 'ACTIVIDADES Y SECCIONES',
     'home.sections.subtitle': 'Conoce toda nuestra oferta deportiva y formativa',
     'home.sections.federat.title': 'FÚTBOL SALA FEDERADO',

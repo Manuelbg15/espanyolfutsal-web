@@ -162,6 +162,17 @@ const storeExternal = STORE_URL !== "";
 
     <!-- RIGHT ACTIONS (Language + CTA) -->
     <div class="hidden 2xl:flex items-center space-x-3 flex-shrink-0">
+      <!-- Barcelona Futsal Cup -->
+      <a
+        href="https://barcelonafutsalcup.es/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-1.5 text-gray-800 font-bold text-sm border-2 border-[#0073ce]/20 px-3 py-1.5 rounded-lg hover:bg-[#0073ce] hover:text-white hover:border-transparent transition-colors whitespace-nowrap"
+      >
+        <span>🏆</span>
+        <span>{t("nav.cup")}</span>
+      </a>
+
       <!-- Language Picker -->
       <LanguagePicker />
 
@@ -345,6 +356,15 @@ const storeExternal = STORE_URL !== "";
       >
 
       <div class="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
+        <a
+          href="https://barcelonafutsalcup.es/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex justify-center items-center gap-2 text-gray-800 font-bold border-2 border-[#0073ce]/20 px-4 py-3 rounded-xl hover:bg-[#0073ce] hover:text-white transition-colors"
+        >
+          <span class="text-lg">🏆</span> {t("nav.cup")}
+        </a>
+
         <a
           href={`/${lang}/inscripcions-2026-27`}
           class="bg-[#0073ce] hover:bg-[#005bac] text-white px-5 py-3 rounded-xl font-extrabold text-center shadow"
