@@ -40,8 +40,6 @@ const lang = getLangFromUrl(Astro.url);
 			href="https://unpkg.com/aos@2.3.1/dist/aos.css"
 			rel="stylesheet"
 		/>
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-		></script>
 	</head>
 	<body
 		class="bg-slate-50 font-sans text-gray-900 antialiased min-h-screen flex flex-col"
@@ -61,17 +59,6 @@ const lang = getLangFromUrl(Astro.url);
 				offset: 80,
 				easing: "ease-out-cubic",
 			});
-		</script>
-		<script>
-			if ((window as any).netlifyIdentity) {
-				(window as any).netlifyIdentity.on("init", (user: any) => {
-					if (!user) {
-						(window as any).netlifyIdentity.on("login", () => {
-							document.location.href = "/admin/";
-						});
-					}
-				});
-			}
 		</script>
 	</body>
 </html>

@@ -8,13 +8,16 @@ interface Props {
 const { lang } = Astro.props;
 import LanguagePicker from "./LanguagePicker.astro";
 const t = useTranslations(lang as any);
+import { STORE_URL } from "../data/links";
+const storeHref = STORE_URL || `/${lang}/formcontacte`;
+const storeExternal = STORE_URL !== "";
 ---
 
 <header
   class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
 >
   <div
-    class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex justify-between items-center gap-4"
+    class="max-w-[96rem] mx-auto px-4 sm:px-6 py-2.5 flex justify-between items-center gap-4"
   >
     <!-- LOGO (Left) -->
     <a
@@ -37,18 +40,13 @@ const t = useTranslations(lang as any);
     </a>
 
     <!-- DESKTOP NAV LINKS (Center) -->
-    <nav class="hidden xl:flex space-x-5 items-center justify-center flex-grow">
-      <a
-        href={`/${lang}/`}
-        class="text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors"
-        >{t("nav.home")}</a
-      >
+    <nav class="hidden 2xl:flex space-x-5 items-center justify-center flex-grow">
 
       <!-- Dropdown El Club -->
       <div class="relative group">
         <a
           href={`/${lang}/el-club`}
-          class="flex items-center text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors py-2"
+          class="flex items-center whitespace-nowrap text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors py-2"
         >
           {t("nav.club")}
           <svg
@@ -145,6 +143,15 @@ const t = useTranslations(lang as any);
         >{t("nav.news")}</a
       >
 
+      <!-- Store -->
+      <a
+        href={storeHref}
+        target={storeExternal ? "_blank" : undefined}
+        rel={storeExternal ? "noopener noreferrer" : undefined}
+        class="text-gray-800 hover:text-[#0073ce] font-semibold text-sm transition-colors whitespace-nowrap"
+        >{t("nav.store")}</a
+      >
+
       <!-- Contacte -->
       <a
         href={`/${lang}/formcontacte`}
@@ -154,7 +161,7 @@ const t = useTranslations(lang as any);
     </nav>
 
     <!-- RIGHT ACTIONS (Language + CTA) -->
-    <div class="hidden xl:flex items-center space-x-3 flex-shrink-0">
+    <div class="hidden 2xl:flex items-center space-x-3 flex-shrink-0">
       <!-- Language Picker -->
       <LanguagePicker />
 
@@ -179,12 +186,12 @@ const t = useTranslations(lang as any);
         class="bg-[#0073ce] hover:bg-[#005bac] text-white px-4 py-2 rounded-full font-extrabold text-xs tracking-wider shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap flex items-center gap-1.5"
       >
         <span>⚽</span>
-        <span>{t("cta.play_full")}</span>
+        <span>{t("cta.play")}</span>
       </a>
     </div>
 
     <!-- Mobile Menu Button & Small CTA -->
-    <div class="xl:hidden flex items-center gap-2">
+    <div class="2xl:hidden flex items-center gap-2">
       <a
         href={`/${lang}/inscripcions-2026-27`}
         class="bg-[#0073ce] hover:bg-[#005bac] text-white px-3 py-1.5 rounded-full font-bold text-xs tracking-wider shadow transition-all whitespace-nowrap"
@@ -216,7 +223,7 @@ const t = useTranslations(lang as any);
 
   <!-- Mobile Menu -->
   <div
-    class="xl:hidden hidden bg-white/95 backdrop-blur-md border-b border-gray-200"
+    class="2xl:hidden hidden bg-white/95 backdrop-blur-md border-b border-gray-200"
     id="mobile-menu"
   >
     <div class="flex flex-col space-y-3 px-6 py-4 max-h-[80vh] overflow-y-auto">
@@ -321,6 +328,14 @@ const t = useTranslations(lang as any);
         href={`/${lang}/actualitat`}
         class="text-gray-800 hover:text-[#0073ce] font-semibold py-1.5"
         >{t("nav.news")}</a
+      >
+
+      <a
+        href={storeHref}
+        target={storeExternal ? "_blank" : undefined}
+        rel={storeExternal ? "noopener noreferrer" : undefined}
+        class="text-gray-800 hover:text-[#0073ce] font-semibold py-1.5"
+        >{t("nav.store")}</a
       >
 
       <a

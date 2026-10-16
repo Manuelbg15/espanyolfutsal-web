@@ -1,303 +1,142 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { useTranslations } from "../../i18n/utils";
 
 export function getStaticPaths() {
   return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
 }
 
 const { lang } = Astro.params;
-import { useTranslations } from "../../i18n/utils";
 const t = useTranslations(lang as any);
+const field =
+  "w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:border-[#0073ce] focus:ring-2 focus:ring-[#0073ce]/20 outline-none transition";
+const label = "block text-sm font-bold text-gray-700 mb-1.5";
+const subjects = [
+  t("contact.form.subject.info"),
+  t("contact.form.subject.inscription"),
+  t("contact.form.subject.simpatitzant"),
+  t("contact.form.subject.campus"),
+  t("contact.form.subject.store"),
+  t("contact.form.subject.other"),
+];
 ---
 
-<Layout title={`${t("contact.hero.title")} | Club Esportiu Acadèmia`}>
-  <!-- Hero Section -->
-  <section
-    class="relative h-[50vh] min-h-[450px] flex items-center justify-center overflow-hidden"
-  >
+<Layout title={`${t("contact.hero.title")} | SD Espanyol Futbol Sala`}>
+  <section class="relative h-[38vh] min-h-[320px] flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img
-        src="/images/contacto-hero.png"
-        alt="Contacto Hero"
-        class="w-full h-full object-cover"
-      />
-      <!-- CUSTOM OVERLAY #734c40 -->
-      <div class="absolute inset-0 bg-[#734c40]/70"></div>
+      <img src="/images/instalacions/pavello-jm-2.jpg" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#07224f]/95 via-[#005bac]/85 to-[#07224f]/95"></div>
     </div>
-
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-      <h1
-        class="text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase font-heading tracking-tight"
-      >
+    <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 uppercase font-heading tracking-tight">
         {t("contact.hero.title")}
       </h1>
-      <p class="text-xl md:text-2xl text-white font-medium tracking-wide">
-        {t("contact.hero.subtitle")}
-      </p>
+      <p class="text-lg text-blue-100">{t("contact.hero.subtitle")}</p>
     </div>
   </section>
 
-  <!-- Form Section -->
-  <section class="py-24 bg-gray-50 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl">
-        <form class="space-y-6" id="contactForm">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Nombre -->
-            <div>
-              <label
-                for="name"
-                class="block text-sm font-bold text-gray-700 mb-2"
-                >{t("contact.form.name")}</label
-              >
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all placeholder-gray-400"
-                placeholder={t("contact.form.name.placeholder")}
-              />
-            </div>
-
-            <!-- Email -->
-            <div>
-              <label
-                for="email"
-                class="block text-sm font-bold text-gray-700 mb-2"
-                >{t("contact.form.email")}</label
-              >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all placeholder-gray-400"
-                placeholder={t("contact.form.email.placeholder")}
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Teléfono -->
-            <div>
-              <label
-                for="phone"
-                class="block text-sm font-bold text-gray-700 mb-2"
-                >{t("contact.form.phone")}</label
-              >
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                pattern="[0-9]{9,}"
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all placeholder-gray-400"
-                placeholder={t("contact.form.phone.placeholder")}
-              />
-            </div>
-
-            <!-- Asunto -->
-            <div>
-              <label
-                for="subject"
-                class="block text-sm font-bold text-gray-700 mb-2"
-                >{t("contact.form.subject")}</label
-              >
-              <select
-                id="subject"
-                name="subject"
-                required
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all bg-white"
-              >
-                <option value="" disabled selected
-                  >{t("contact.form.subject.default")}</option
-                >
-                <option value="Informació General"
-                  >{t("contact.form.subject.info")}</option
-                >
-                <option value="Inscripcions"
-                  >{t("contact.form.subject.inscription")}</option
-                >
-                <option value="Campus i Tecnificacions"
-                  >{t("contact.form.subject.campus")}</option
-                >
-                <option value="Col·laboracions"
-                  >{t("contact.form.subject.collab")}</option
-                >
-                <option value="Altres">{t("contact.form.subject.other")}</option
-                >
-              </select>
-            </div>
-          </div>
-
-          <!-- Mensaje -->
-          <div>
-            <label
-              for="message"
-              class="block text-sm font-bold text-gray-700 mb-2"
-              >{t("contact.form.message")}</label
-            >
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              required
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-club-granate focus:ring-2 focus:ring-club-granate/20 outline-none transition-all placeholder-gray-400 resize-none"
-              placeholder={t("contact.form.message.placeholder")}></textarea>
-          </div>
-
-          <!-- Privacidad -->
-          <div class="flex items-start">
-            <input
-              type="checkbox"
-              id="privacy"
-              name="privacy"
-              required
-              class="mt-1 w-5 h-5 text-club-granate border-gray-300 rounded focus:ring-club-granate"
-            />
-            <label
-              for="privacy"
-              class="ml-3 text-sm text-gray-600"
-              set:html={t("contact.form.privacy")}
-            />
-          </div>
-
-          <!-- Submit Button -->
-          <div class="pt-4">
-            <button
-              type="submit"
-              id="submitBtn"
-              class="w-full md:w-auto px-8 py-4 bg-club-granate text-white font-bold rounded-lg hover:bg-club-granate/90 focus:ring-4 focus:ring-club-granate/30 transition-all transform hover:-translate-y-1 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {t("contact.form.btn.submit")}
-            </button>
-          </div>
-
-          <!-- Status Messages -->
-          <div id="formStatus" class="hidden rounded-lg p-4 mt-4 text-center">
-            {/* Populated by JS */}
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Info Section -->
-  <section class="py-16 bg-club-beige/20 border-t border-gray-200">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h3
-        class="text-2xl font-bold text-gray-900 mb-6 uppercase text-club-granate"
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-3 gap-10 items-start">
+      <!-- Formulari -->
+      <form
+        id="contactForm"
+        class="lg:col-span-2 bg-white rounded-2xl border border-gray-200 border-t-4 border-t-[#0073ce] shadow-lg p-6 md:p-10 space-y-5"
+        data-sending={t("contact.form.btn.sending")}
+        data-submit={t("contact.form.btn.submit")}
+        data-ok={t("contact.form.success")}
+        data-error={t("contact.form.error")}
       >
-        {t("contact.direct.title")}
-      </h3>
-      <p class="text-gray-700 mb-8">
-        {t("contact.direct.desc")}
-      </p>
-
-      <p class="text-xl md:text-2xl font-bold text-gray-900 mb-12">
-        <a
-          href="mailto:info@clubesportiuacademia.es"
-          class="text-club-granate hover:underline"
-          >info@clubesportiuacademia.es</a
-        >
-        <br class="md:hidden" />
-        <span class="hidden md:inline text-gray-400 mx-2">|</span>
-        <span
-          class="text-lg md:text-xl text-gray-700 block md:inline mt-2 md:mt-0"
-          >{t("contact.phones")}</span
-        >
-      </p>
-
-      <div class="w-24 h-1 bg-club-granate/20 mx-auto rounded-full mb-12"></div>
-
-      <div class="grid md:grid-cols-2 gap-10 text-gray-700">
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <strong class="block text-lg text-club-granate mb-2"
-            >{t("location.bcn")}</strong
-          >
-          <p set:html={t("contact.address.bcn")} />
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class={label} for="c-name">{t("contact.form.name")}</label>
+            <input id="c-name" name="name" type="text" required autocomplete="given-name" placeholder={t("contact.form.name.placeholder")} class={field} />
+          </div>
+          <div>
+            <label class={label} for="c-surname">{t("contact.form.surname")}</label>
+            <input id="c-surname" name="surname" type="text" required autocomplete="family-name" placeholder={t("contact.form.surname.placeholder")} class={field} />
+          </div>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <strong class="block text-lg text-club-granate mb-2"
-            >{t("location.lh")}</strong
-          >
-          <p set:html={t("contact.address.lh")} />
+        <div>
+          <label class={label} for="c-email">{t("contact.form.email")}</label>
+          <input id="c-email" name="email" type="email" required autocomplete="email" placeholder={t("contact.form.email.placeholder")} class={field} />
         </div>
-      </div>
+        <div>
+          <label class={label} for="c-subject">{t("contact.form.subject")}</label>
+          <select id="c-subject" name="subject" required class={field}>
+            <option value="">{t("contact.form.subject.default")}</option>
+            {subjects.map((s) => <option value={s}>{s}</option>)}
+          </select>
+        </div>
+        <div>
+          <label class={label} for="c-message">{t("contact.form.message")}</label>
+          <textarea id="c-message" name="message" rows="6" required placeholder={t("contact.form.message.placeholder")} class={field}></textarea>
+        </div>
 
-      <div class="mt-12">
-        <a
-          href="https://www.instagram.com/ce.academia"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center text-club-granate font-bold text-lg hover:text-club-gold transition-colors"
+        <!-- Anti-spam: camp ocult -->
+        <div class="hidden" aria-hidden="true">
+          <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <input id="c-privacy" name="privacy" type="checkbox" required class="mt-1 w-5 h-5 accent-[#0073ce]" />
+          <label for="c-privacy" class="text-sm text-gray-600" set:html={t("contact.form.privacy")} />
+        </div>
+
+        <button
+          id="submitBtn"
+          type="submit"
+          class="w-full md:w-auto px-8 py-4 bg-[#0073ce] hover:bg-[#005696] disabled:opacity-60 text-white font-extrabold rounded-xl transition-colors"
         >
-          <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"
-            ><path
-              fill-rule="evenodd"
-              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.457 2h.08zm-3.827 4a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1zm6.48 4a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"
-              clip-rule="evenodd"></path></svg
-          >
-          www.instagram.com/ce.academia
-        </a>
-      </div>
+          {t("contact.form.btn.submit")}
+        </button>
+        <div id="formStatus" class="hidden" role="status" aria-live="polite"></div>
+      </form>
+
+      <!-- Dades de contacte -->
+      <aside class="bg-[#07224f] text-white rounded-2xl p-8 space-y-6">
+        <div>
+          <h2 class="text-xl font-bold font-heading mb-2">SD Espanyol Futbol Sala</h2>
+          <p class="text-blue-100 text-sm leading-relaxed">
+            Carrer Pau Claris, 176, 1r 1a<br />08037 Barcelona
+          </p>
+        </div>
+        <div class="space-y-2 text-sm">
+          <a href="tel:+34640066023" class="block hover:text-[#00a3e0]">📞 +34 640 066 023</a>
+          <a href="mailto:info@espanyolfutsal.es" class="block hover:text-[#00a3e0]">✉️ info@espanyolfutsal.es</a>
+        </div>
+        <div class="space-y-2 text-sm border-t border-white/15 pt-6">
+          <a href="https://www.instagram.com/sdespanyol_futsal" target="_blank" rel="noopener noreferrer" class="block hover:text-[#00a3e0]">Instagram · @sdespanyol_futsal</a>
+          <a href="https://www.youtube.com/@SDEspanyolFutsal" target="_blank" rel="noopener noreferrer" class="block hover:text-[#00a3e0]">YouTube · @SDEspanyolFutsal</a>
+        </div>
+      </aside>
     </div>
   </section>
 </Layout>
 
 <script>
-  // Simple client-side handling for demonstration.
-  // In a real Hostalia hosting environment with PHP support, this form should point to a PHP script
-  // that handles the actual mailing using mail() or PHPMailer.
-  const form = document.getElementById("contactForm");
-  const submitBtn = document.getElementById("submitBtn");
-  const statusDiv = document.getElementById("formStatus");
+  const form = document.getElementById("contactForm") as HTMLFormElement | null;
+  const btn = document.getElementById("submitBtn") as HTMLButtonElement | null;
+  const status = document.getElementById("formStatus");
 
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      // Basic Status Update
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Enviant...";
-      statusDiv.classList.add("hidden");
-
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-
-      try {
-        // Send data to PHP script
-        const response = await fetch("/send-mail.php", {
-          method: "POST",
-          body: formData,
-        });
-
-        const result = await response.json();
-
-        if (response.ok && result.status === "success") {
-          // Success
-          console.log("Form submitted:", data);
-          statusDiv.textContent =
-            "✅ Missatge enviat correctament! Et contactarem aviat.";
-          statusDiv.className =
-            "bg-green-100 text-green-800 p-4 rounded-lg mt-4 text-center block font-medium";
-          form.reset();
-        } else {
-          throw new Error(result.message || "Error en enviar el formulari");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        statusDiv.textContent =
-          "❌ Hi ha hagut un error en enviar el missatge. Si us plau, intenta-ho més tard o contacta per telèfon.";
-        statusDiv.className =
-          "bg-red-100 text-red-800 p-4 rounded-lg mt-4 text-center block font-medium";
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "ENVIAR MISSATGE 📤";
-        }
-      }
-    });
-  }
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!btn || !status) return;
+    btn.disabled = true;
+    btn.textContent = form.dataset.sending || "...";
+    status.className = "hidden";
+    try {
+      const res = await fetch("/send-mail.php", { method: "POST", body: new FormData(form) });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || json.status !== "success") throw new Error(json.message);
+      status.textContent = form.dataset.ok || "OK";
+      status.className = "bg-green-50 text-green-800 border border-green-200 p-4 rounded-lg font-medium";
+      form.reset();
+    } catch {
+      status.textContent = form.dataset.error || "Error";
+      status.className = "bg-red-50 text-red-800 border border-red-200 p-4 rounded-lg font-medium";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = form.dataset.submit || "Enviar";
+    }
+  });
 </script>

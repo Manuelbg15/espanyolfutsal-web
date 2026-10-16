@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { patrocinadors, mitjans } from "../../data/sponsors";
 import SectionCard from "../../components/SectionCard.astro";
 import NewsCard from "../../components/NewsCard.astro";
 import { getCollection } from "astro:content";
@@ -56,20 +57,6 @@ const sections = [
   },
 ];
 
-const patrocinadors = [
-  { name: "EDELWEISS", desc: "Residència & Centre de Dia", url: "https://residenciasedelweiss.com/" },
-  { name: "NYO ENERGY", desc: "Energia Intel·ligent", url: "https://nyoenergy.es/" },
-  { name: "LMA", desc: "Gestió i Assessoria", url: "https://www.lmatia.es/" },
-  { name: "FORTIUS", desc: "Sports Management", url: "https://www.fortiusports.com/" },
-  { name: "REPCAR VALLES", desc: "Serveis d'Automoció", url: "https://www.repcar.net/" },
-];
-
-const mitjans = [
-  { name: "PERICOS MARCA", desc: "Actualitat Perica", url: "https://pericos.es/" },
-  { name: "FUTBOL IN!", desc: "Seguiment Futsal", url: "https://x.com/futbolin1900" },
-  { name: "LA GRADA", desc: "Diari Espanyolista", url: "https://lagrada.org/" },
-  { name: "EL 1900", desc: "Passió Blanc-i-Blava", url: "https://el1900.com/" },
-];
 ---
 
 <Layout title="SD Espanyol Futbol Sala | Pàgina Oficial">
@@ -348,7 +335,7 @@ const mitjans = [
       <!-- Patrocinadors Cards -->
       <div class="mb-10">
         <p class="text-xs font-bold text-gray-400 uppercase tracking-widest text-center mb-6">
-          PATROCINADORS OFICIALS
+          {t("club.sponsors.title")}
         </p>
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {
@@ -357,12 +344,10 @@ const mitjans = [
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#0073ce] transition-all text-center flex flex-col justify-center items-center group"
+                title={`${p.name} · ${p.desc}`}
+                class="bg-white p-5 h-32 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#0073ce] transition-all text-center flex flex-col justify-center items-center group"
               >
-                <span class="font-extrabold text-gray-900 group-hover:text-[#0073ce] transition-colors text-base font-heading">
-                  {p.name}
-                </span>
-                <span class="text-xs text-gray-500 mt-1">{p.desc}</span>
+                <img src={p.img} alt={p.name} loading="lazy" class="h-20 w-full object-contain group-hover:scale-105 transition-transform" />
               </a>
             ))
           }
@@ -372,7 +357,7 @@ const mitjans = [
       <!-- Mitjans Cards -->
       <div>
         <p class="text-xs font-bold text-gray-400 uppercase tracking-widest text-center mb-6">
-          MITJANS DE COMUNICACIÓ
+          {t("club.media.title")}
         </p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {
@@ -381,12 +366,10 @@ const mitjans = [
                 href={m.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#0073ce] transition-all text-center flex flex-col justify-center items-center group"
+                title={`${m.name} · ${m.desc}`}
+                class="bg-white p-4 h-32 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-[#0073ce] transition-all text-center flex flex-col justify-center items-center group"
               >
-                <span class="font-extrabold text-gray-800 group-hover:text-[#0073ce] transition-colors text-sm font-heading">
-                  {m.name}
-                </span>
-                <span class="text-xs text-gray-500 mt-0.5">{m.desc}</span>
+                <img src={m.img} alt={m.name} loading="lazy" class="h-20 w-full object-contain group-hover:scale-105 transition-transform" />
               </a>
             ))
           }

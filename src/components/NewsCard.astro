@@ -4,36 +4,20 @@ interface Props {
   image: string;
   link: string;
   excerpt: string;
+  readMore?: string;
 }
-
-const { title, image, link, excerpt } = Astro.props;
+const { title, image, link, excerpt, readMore = "Llegir més" } = Astro.props;
 ---
 
-<article class="flex flex-col h-full bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-  <div class="aspect-video w-full overflow-hidden">
-    <a href={link} class="block h-full w-full group">
-      <img 
-        src={image} 
-        alt={title} 
-        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-    </a>
-  </div>
-  
+<article class="flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+  <a href={link} class="block aspect-video overflow-hidden">
+    <img src={image} alt={title} loading="lazy" class="w-full h-full object-cover" />
+  </a>
   <div class="p-6 flex flex-col flex-grow">
-    <h3 class="text-xl font-bold mb-3 text-gray-900 line-clamp-2">
-      <a href={link} class="hover:text-club-granate transition-colors">
-        {title}
-      </a>
+    <h3 class="text-xl font-bold mb-3 text-gray-900 line-clamp-2 font-heading">
+      <a href={link} class="hover:text-[#0073ce] transition-colors">{title}</a>
     </h3>
-    <p class="text-gray-600 mb-4 line-clamp-3 flex-grow text-sm">
-      {excerpt}
-    </p>
-    <a href={link} class="inline-flex items-center text-club-granate font-semibold text-sm hover:text-club-gold transition-colors mt-auto">
-      Leer más
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
-    </a>
+    <p class="text-gray-600 mb-4 line-clamp-3 flex-grow text-sm">{excerpt}</p>
+    <a href={link} class="text-[#0073ce] font-semibold text-sm hover:underline mt-auto">{readMore}</a>
   </div>
 </article>

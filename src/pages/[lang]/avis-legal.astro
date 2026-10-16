@@ -8,10 +8,10 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 ---
 
-<Layout title="Avís Legal | Club Esportiu Acadèmia">
+<Layout title="Avís Legal | SD Espanyol Futbol Sala">
     <section class="max-w-4xl mx-auto px-6 py-12 md:py-20">
         <h1
-            class="text-3xl md:text-5xl font-bold text-club-granate mb-10 font-heading"
+            class="text-3xl md:text-5xl font-bold text-[#0073ce] mb-10 font-heading"
         >
             Avís Legal
         </h1>
@@ -30,18 +30,18 @@ const { lang } = Astro.params;
                 </p>
                 <ul class="list-disc pl-6 space-y-2">
                     <li>
-                        <strong>Titular:</strong> Club Esportiu Acadèmia Barcelona
+                        <strong>Titular:</strong> SD Espanyol Futbol Sala
                     </li>
+                    <li><strong>CIF:</strong> [PENDENT D'AFEGIR]</li>
                     <li>
-                        <strong>Adreça:</strong> Travessera de Les Corts 314, 08029,
-                        Barcelona
+                        <strong>Adreça:</strong> Carrer Pau Claris, 176, 1r 1a, 08037 Barcelona
                     </li>
                     <li>
                         <strong>Correu electrònic:</strong>
                         <a
-                            href="mailto:info@clubesportiuacademia.es"
-                            class="text-club-granate hover:underline"
-                            >info@clubesportiuacademia.es</a
+                            href="mailto:info@espanyolfutsal.es"
+                            class="text-[#0073ce] hover:underline"
+                            >info@espanyolfutsal.es</a
                         >
                     </li>
                     <li><strong>Telèfon:</strong> +34 640 066 023</li>
@@ -68,7 +68,7 @@ const { lang } = Astro.params;
                 <p>
                     El lloc web proporciona l'accés a multitud d'informacions,
                     serveis, programes o dades (en endavant, "els continguts") a
-                    Internet pertanyents al Club Esportiu Acadèmia Barcelona.
+                    Internet pertanyents al SD Espanyol Futbol Sala.
                     L'USUARI assumeix la responsabilitat de l'ús del portal.
                     Aquesta responsabilitat s'estén al registre que fos
                     necessari per accedir a determinats serveis o continguts.
@@ -81,13 +81,13 @@ const { lang } = Astro.params;
                     4. Protecció de Dades
                 </h2>
                 <p>
-                    El Club Esportiu Acadèmia Barcelona compleix amb les
+                    El SD Espanyol Futbol Sala compleix amb les
                     directrius del Reglament General de Protecció de Dades i
                     altra normativa vigent, i vetlla per garantir un correcte ús
                     i tractament de les dades personals de l'usuari. Per a més
                     informació, visiti la nostra <a
-                        href="/politica-privacitat"
-                        class="text-club-granate hover:underline font-bold"
+                        href={`/${Astro.params.lang}/politica-privacitat`}
+                        class="text-[#0073ce] hover:underline font-bold"
                         >Política de Privacitat</a
                     >.
                 </p>
@@ -99,7 +99,7 @@ const { lang } = Astro.params;
                     5. Propietat Intel·lectual i Industrial
                 </h2>
                 <p>
-                    El Club Esportiu Acadèmia Barcelona és titular de tots els
+                    El SD Espanyol Futbol Sala és titular de tots els
                     drets de propietat intel·lectual i industrial de la seva
                     pàgina web, així com dels elements continguts en la mateixa
                     (imatges, so, àudio, vídeo, programari o textos; marques o

@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { useTranslations } from "../../i18n/utils";
+import { APP_SIMPATITZANT_URL } from "../../data/links";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as any);
+
+const benefits = [
+  { icon: "🧣", text: t("simpatitzant.benefit1") },
+  { icon: "📺", text: t("simpatitzant.benefit2") },
+  { icon: "🏷️", text: t("simpatitzant.benefit3") },
+  { icon: "🎉", text: t("simpatitzant.benefit4") },
+];
+const hasApp = APP_SIMPATITZANT_URL.trim() !== "";
+---
+
+<Layout title={`${t("nav.simpatitzant")} | SD Espanyol Futbol Sala`}>
+  <section
+    class="relative py-20 md:py-28 text-white overflow-hidden"
+    style="background: linear-gradient(135deg, #07224f 0%, #005bac 50%, #0073ce 100%);"
+  >
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <img src="/images/escudo-espanyol.png" alt="" class="h-24 w-auto mx-auto mb-6 drop-shadow-lg" />
+      <h1 class="text-4xl md:text-6xl font-extrabold uppercase font-heading tracking-tight mb-4">
+        {t("simpatitzant.title")}
+      </h1>
+      <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
+        {t("simpatitzant.subtitle")}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6 grid lg:grid-cols-5 gap-10 items-start">
+      <ul class="lg:col-span-3 space-y-4">
+        {benefits.map((b) => (
+          <li class="flex items-start gap-4 bg-slate-50 border border-gray-200 rounded-2xl p-5">
+            <span class="text-3xl leading-none" aria-hidden="true">{b.icon}</span>
+            <span class="text-gray-800 text-lg leading-relaxed">{b.text}</span>
+          </li>
+        ))}
+      </ul>
+
+      <aside class="lg:col-span-2 bg-[#e8f4fd] border-2 border-[#0073ce] rounded-2xl p-8 text-center lg:sticky lg:top-28">
+        <p class="text-gray-700">{t("simpatitzant.price_prefix")}</p>
+        <p class="text-5xl font-extrabold text-[#07224f] font-heading my-2">{t("simpatitzant.price_val")}</p>
+        <p class="text-gray-700 mb-6">{t("simpatitzant.price_suffix")}</p>
+
+        <h2 class="text-xl font-bold text-[#07224f] font-heading mb-2">{t("simpatitzant.page.how")}</h2>
+        <p class="text-gray-600 text-sm mb-6">
+          {hasApp ? t("simpatitzant.page.how_desc") : t("simpatitzant.page.soon")}
+        </p>
+
+        {hasApp ? (
+          <a
+            href={APP_SIMPATITZANT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full px-6 py-4 bg-[#0073ce] hover:bg-[#005696] text-white rounded-xl font-extrabold transition-colors"
+          >
+            {t("simpatitzant.cta")}
+          </a>
+        ) : (
+          <a
+            href={`/${lang}/formcontacte`}
+            class="block w-full px-6 py-4 bg-[#0073ce] hover:bg-[#005696] text-white rounded-xl font-extrabold transition-colors"
+          >
+            {t("simpatitzant.page.contact")}
+          </a>
+        )}
+      </aside>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50 border-t border-gray-200 text-center px-6">
+    <p class="text-2xl font-bold text-[#07224f] font-heading">{t("simpatitzant.welcome")}</p>
+    <p class="text-gray-600 mt-2">{t("simpatitzant.thanks")}</p>
+    <p class="text-[#0073ce] italic mt-6 text-lg">{t("simpatitzant.quote")}</p>
+  </section>
+</Layout>

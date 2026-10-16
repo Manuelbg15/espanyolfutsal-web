@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - main
-  repository_dispatch:
-    types: [cms-update]
+  workflow_dispatch:
 
 jobs:
   web-deploy:
@@ -13,23 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: 🟢 Usage Node
-        uses: actions/setup-node@v3
+      - name: 🟢 Use Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: 📦 Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: 🛠️ Build Project
         run: npm run build
-        env:
-          CMS_API_KEY: ${{ secrets.CMS_API_KEY }}
 
       - name: 📂 Sync files (LFTP)
         run: |
           sudo apt-get update
           sudo apt-get install -y lftp
-          lftp -c "set ftp:ssl-allow no; set ssl:verify-certificate no; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mirror -R -v --parallel=2 --delete ./dist /clubesportiuacademia.es; bye"
+          lftp -c "set ftp:ssl-allow no; set ssl:verify-certificate no; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mirror -R -v --parallel=2 --delete ./dist ${{ secrets.FTP_REMOTE_DIR }}; bye"

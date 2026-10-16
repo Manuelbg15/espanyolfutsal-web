@@ -17,7 +17,7 @@ const t = useTranslations(lang as any);
     >
         <div class="absolute inset-0 z-0">
             <img
-                src="/images/inscribete-hero.png"
+                src="/images/instalacions/pista1-azul.jpg"
                 alt="Inscribete Hero"
                 class="w-full h-full object-cover"
             />
@@ -39,11 +39,11 @@ const t = useTranslations(lang as any);
         <div class="max-w-4xl mx-auto px-4 md:px-6">
             <!-- Custom Card Design as requested -->
             <div
-                class="bg-white border border-gray-100 border-t-[5px] border-t-[#954535] rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] p-6 md:p-10 max-w-3xl mx-auto font-sans"
+                class="bg-white border border-gray-100 border-t-[5px] border-t-[#0073ce] rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] p-6 md:p-10 max-w-3xl mx-auto font-sans"
             >
                 <div class="text-center mb-8">
                     <h3
-                        class="text-[#954535] text-2xl md:text-3xl font-extrabold uppercase mb-2"
+                        class="text-[#0073ce] text-2xl md:text-3xl font-extrabold uppercase mb-2"
                     >
                         {t("inscription.card.title")}
                     </h3>
@@ -55,6 +55,7 @@ const t = useTranslations(lang as any);
                 </div>
 
                 <form id="registrationForm" class="space-y-6">
+                    <div class="hidden" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" /></div>
                     <!-- 1. DADES PERSONALS -->
                     <div>
                         <h4
@@ -76,7 +77,7 @@ const t = useTranslations(lang as any);
                                     placeholder={t(
                                         "inscription.form.name.placeholder",
                                     )}
-                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                                 />
                             </div>
                             <div class="flex-1">
@@ -91,7 +92,7 @@ const t = useTranslations(lang as any);
                                     placeholder={t(
                                         "inscription.form.surname.placeholder",
                                     )}
-                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                                 />
                             </div>
                         </div>
@@ -106,7 +107,7 @@ const t = useTranslations(lang as any);
                                     type="date"
                                     name="birth-date"
                                     required
-                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                                 />
                             </div>
                             <div class="flex-1">
@@ -117,7 +118,7 @@ const t = useTranslations(lang as any);
                                 <select
                                     name="gender"
                                     required
-                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                                 >
                                     <option value="">Selecciona...</option>
                                     <option value="Masculí"
@@ -160,7 +161,7 @@ const t = useTranslations(lang as any);
                                 placeholder={t(
                                     "inscription.form.guardian.placeholder",
                                 )}
-                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                             />
                         </div>
 
@@ -177,7 +178,7 @@ const t = useTranslations(lang as any);
                                     name="email"
                                     required
                                     placeholder="email@exemple.com"
-                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                                 />
                             </div>
                             <div class="flex-1">
@@ -192,7 +193,7 @@ const t = useTranslations(lang as any);
                                     name="phone"
                                     required
                                     placeholder="600 000 000"
-                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                                 />
                             </div>
                         </div>
@@ -223,7 +224,7 @@ const t = useTranslations(lang as any);
                                             name="activity-type"
                                             value="Escolar"
                                             checked
-                                            class="mr-2 text-[#954535] focus:ring-[#954535]"
+                                            class="mr-2 text-[#0073ce] focus:ring-[#0073ce]"
                                         />
                                         {t("inscription.form.type.school")}
                                     </label>
@@ -234,7 +235,7 @@ const t = useTranslations(lang as any);
                                             type="radio"
                                             name="activity-type"
                                             value="Federat"
-                                            class="mr-2 text-[#954535] focus:ring-[#954535]"
+                                            class="mr-2 text-[#0073ce] focus:ring-[#0073ce]"
                                         />
                                         {t("inscription.form.type.federated")}
                                     </label>
@@ -248,16 +249,11 @@ const t = useTranslations(lang as any);
                                 <select
                                     name="sport"
                                     required
-                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                    class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                                 >
                                     <option value="">Selecciona...</option>
-                                    <option value="Futbol Sala"
+                                    <option value="Futbol Sala" selected
                                         >Futbol Sala</option
-                                    >
-                                    <option value="Voleibol">Voleibol</option>
-                                    <option value="Bàsquet">Bàsquet</option>
-                                    <option value="Ball Esportiu"
-                                        >Ball Esportiu</option
                                     >
                                 </select>
                             </div>
@@ -271,7 +267,7 @@ const t = useTranslations(lang as any);
                             <select
                                 name="category"
                                 required
-                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                             >
                                 <option value="">Selecciona...</option>
                                 <option value="Promeses (4-5 anys)"
@@ -286,7 +282,7 @@ const t = useTranslations(lang as any);
                                 <option value="Mini Benjamí (8 anys)"
                                     >Mini Benjamí (8 anys)</option
                                 >
-                                <option value="Benjamín (9 anys)"
+                                <option value="Benjamí (9 anys)"
                                     >Benjamín (9 anys)</option
                                 >
                                 <option value="Aleví (10-11 anys)"
@@ -321,7 +317,7 @@ const t = useTranslations(lang as any);
                                 placeholder={t(
                                     "inscription.form.prev_club.placeholder",
                                 )}
-                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#954535] transition-colors"
+                                class="w-full bg-[#f9f9f9] border border-gray-200 p-3 rounded-md text-[15px] focus:outline-none focus:bg-white focus:border-[#0073ce] transition-colors"
                             />
                         </div>
                     </div>
@@ -334,7 +330,7 @@ const t = useTranslations(lang as any);
                                 name="acceptance-terms"
                                 required
                                 id="terms"
-                                class="w-4 h-4 text-[#954535] border-gray-300 rounded focus:ring-[#954535]"
+                                class="w-4 h-4 text-[#0073ce] border-gray-300 rounded focus:ring-[#0073ce]"
                             />
                             <label
                                 for="terms"
@@ -346,7 +342,7 @@ const t = useTranslations(lang as any);
                         <button
                             type="submit"
                             id="submitBtn"
-                            class="w-full bg-[#fecd58] text-[#954535] font-extrabold uppercase py-4 rounded-full text-lg shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                            class="w-full bg-[#0073ce] text-white hover:bg-[#005696] font-extrabold uppercase py-4 rounded-full text-lg shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
                         >
                             {t("inscription.btn.submit")}
                         </button>
@@ -368,6 +364,14 @@ const t = useTranslations(lang as any);
     const form = document.getElementById("registrationForm");
     const submitBtn = document.getElementById("submitBtn");
     const statusDiv = document.getElementById("formStatus");
+
+    const tipus = new URLSearchParams(location.search).get("tipus");
+    if (tipus) {
+        const radio = document.querySelector<HTMLInputElement>(
+            `input[name="activity-type"][value="${tipus === "federat" ? "Federat" : "Escolar"}"]`,
+        );
+        if (radio) radio.checked = true;
+    }
 
     if (form) {
         form.addEventListener("submit", async (e) => {

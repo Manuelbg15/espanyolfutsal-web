@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { patrocinadors, mitjans } from "../../data/sponsors";
 
 export function getStaticPaths() {
   return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
@@ -31,21 +32,6 @@ const jmPhotos = [
 const xalocPhotos = [
   { src: "/images/instalacions/pavello-xaloc-1.jpg", alt: "Pavelló Col·legi Xaloc - Interior" },
   { src: "/images/instalacions/pavello-xaloc-2.jpg", alt: "Pavelló Col·legi Xaloc - Pista" },
-];
-
-const patrocinadors = [
-  { name: "EDELWEISS", desc: "Residència & Centre de Dia", url: "https://residenciasedelweiss.com/" },
-  { name: "NYO ENERGY", desc: "Energia Sostenible", url: "https://nyoenergy.es/" },
-  { name: "LMA", desc: "Gestió i Advocats", url: "https://www.lmatia.es/" },
-  { name: "FORTIUS", desc: "Sports Management", url: "https://www.fortiusports.com/", img: "/images/patrocinador-fortius.png" },
-  { name: "REPCAR VALLES", desc: "Tallers d'Automoció", url: "https://www.repcar.net/" },
-];
-
-const mitjans = [
-  { name: "PERICOS MARCA", url: "https://pericos.es/" },
-  { name: "FUTBOL IN!", url: "https://x.com/futbolin1900" },
-  { name: "LA GRADA", url: "https://lagrada.org/" },
-  { name: "EL 1900", url: "https://el1900.com/" },
 ];
 
 const linksEsportius = [
@@ -278,7 +264,7 @@ const linksLocals = [
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/documents/Reglamento General SD Espanyol.pdf"
+          href="/documents/reglament-general-sd-espanyol.pdf"
           target="_blank"
           download
           class="inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#0073ce] hover:bg-[#005bac] text-white rounded-xl font-bold transition-all shadow-md text-sm md:text-base"
@@ -287,7 +273,7 @@ const linksLocals = [
           {t("club.rules.general_btn")}
         </a>
         <a
-          href="/documents/Protocol_Proteccio_Espanyol_Sentiment_Perico.pdf"
+          href="/documents/protocol-proteccio-menors.pdf"
           target="_blank"
           download
           class="inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#07224f] hover:bg-gray-900 text-white rounded-xl font-bold transition-all shadow-md text-sm md:text-base"
@@ -406,15 +392,9 @@ const linksLocals = [
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-slate-50 p-6 rounded-2xl border border-gray-200 hover:border-[#0073ce] hover:bg-white shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-center items-center group"
+                class="bg-white p-6 h-32 rounded-2xl border border-gray-200 hover:border-[#0073ce] hover:bg-white shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-center items-center group"
               >
-                {p.img ? (
-                  <img src={p.img} alt={p.name} class="h-10 w-auto object-contain mb-3" />
-                ) : null}
-                <span class="font-extrabold text-gray-900 group-hover:text-[#0073ce] transition-colors text-base font-heading">
-                  {p.name}
-                </span>
-                <span class="text-xs text-gray-500 mt-1">{p.desc}</span>
+                <img src={p.img} alt={p.name} loading="lazy" class="h-20 w-full object-contain" />
               </a>
             ))
           }
@@ -433,12 +413,9 @@ const linksLocals = [
                 href={m.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-slate-50 p-5 rounded-2xl border border-gray-200 hover:border-[#0073ce] hover:bg-white shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-center items-center group"
+                class="bg-white p-5 h-32 rounded-2xl border border-gray-200 hover:border-[#0073ce] hover:bg-white shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-center items-center group"
               >
-                <span class="font-extrabold text-gray-900 group-hover:text-[#0073ce] transition-colors text-sm font-heading">
-                  {m.name}
-                </span>
-                <span class="text-xs text-gray-400 mt-1">Premsa & Notícies</span>
+                <img src={m.img} alt={m.name} loading="lazy" class="h-20 w-full object-contain" />
               </a>
             ))
           }

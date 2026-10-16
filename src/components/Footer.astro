@@ -7,6 +7,8 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang as any);
+import { STORE_URL } from "../data/links";
+const storeHref = STORE_URL || `/${lang}/formcontacte`;
 ---
 
 <footer class="bg-[#07224f] text-white pt-16 pb-12 border-t-4 border-[#0073ce]">
@@ -110,13 +112,16 @@ const t = useTranslations(lang as any);
             <a href={`/${lang}/seccions/futbol-sala#juvenils`} class="text-gray-300 hover:text-white transition-colors">Equips Juvenils</a>
           </li>
           <li>
-            <a href={`/${lang}/seccions/futbol-sala#base`} class="text-gray-300 hover:text-white transition-colors">Infantil, Aleví i Benjamins</a>
+            <a href={`/${lang}/seccions/futbol-sala#infantil`} class="text-gray-300 hover:text-white transition-colors">Infantil, Aleví i Benjamins</a>
           </li>
           <li>
             <a href={`/${lang}/extraescolars`} class="text-gray-300 hover:text-white transition-colors">Escolares en Col·legis</a>
           </li>
           <li>
             <a href={`/${lang}/campus-esportius`} class="text-gray-300 hover:text-white transition-colors">Campus i Tecnificacions</a>
+          </li>
+          <li>
+            <a href={storeHref} class="text-gray-300 hover:text-white transition-colors">{t("footer.act.store")}</a>
           </li>
           <li class="pt-2">
             <a
