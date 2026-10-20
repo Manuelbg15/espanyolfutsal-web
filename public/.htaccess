@@ -1,0 +1,3 @@
+# Redirigeix l'arrel del domini a la versió en català
+RewriteEngine On
+RewriteRule ^$ /ca/ [R=301,L]

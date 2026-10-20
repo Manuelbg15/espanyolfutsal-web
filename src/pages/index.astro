@@ -1,4 +1,18 @@
 ---
-// Redirect root / to /ca/
-return Astro.redirect('/ca/');
+// Redirect root / to /ca/ immediately (the server also does a 301 via public/.htaccess)
 ---
+
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <title>SD Espanyol Futbol Sala</title>
+    <meta http-equiv="refresh" content="0;url=/ca/" />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://www.espanyolfutsal.es/ca/" />
+    <script is:inline>location.replace("/ca/");</script>
+  </head>
+  <body>
+    <a href="/ca/">SD Espanyol Futbol Sala</a>
+  </body>
+</html>
