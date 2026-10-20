@@ -43,7 +43,7 @@ export const ui = {
     'cta.simpatitzant': 'DONA-T\'ALTA COM A SIMPATITZANT 💙',
 
     // Footer
-    'footer.slogan': '“Més que un equip, un sentiment periquito també a la pista”',
+    'footer.slogan': '“Més que un equip, un sentiment perico també a la pista”',
     'footer.description': "Secció oficial de futbol sala de les Seccions Esportives Espanyol. Competint amb orgull i valors blanc-i-blaus a Barcelona i Catalunya.",
     'footer.sitemap': 'Mapa Web',
     'footer.activities': 'Seccions i Equips',
@@ -77,12 +77,12 @@ export const ui = {
     // Home Page
     'home.hero.title_part1': 'SD ESPANYOL',
     'home.hero.title_part2': 'FUTBOL SALA',
-    'home.hero.subtitle': '“Més que un equip, un sentiment periquito també a la pista”',
+    'home.hero.subtitle': '“Més que un equip, un sentiment perico també a la pista”',
     'home.hero.cta_join': 'VOLS JUGAR AMB NOSALTRES? ⚽',
     'home.hero.cta_project': 'DESCOBREIX EL CLUB',
 
     'home.intro.title': 'BENVINGUTS A L\'ESPANYOL FUTSAL',
-    'home.intro.desc': 'El projecte de futbol sala de l\'Espanyol neix dins de les Seccions Esportives Espanyol amb l\'objectiu de recuperar i desenvolupar la disciplina vinculada al sentiment periquito. T\'esperem a la pista!',
+    'home.intro.desc': 'El projecte de futbol sala de l\'Espanyol neix dins de les Seccions Esportives Espanyol amb l\'objectiu de recuperar i desenvolupar la disciplina vinculada al sentiment perico. T\'esperem a la pista!',
 
     'home.cup.title': 'BARCELONA FUTSAL CUP 2027',
     'home.cup.desc': "No és només un torneig, és l'experiència esportiva definitiva en una de les ciutats més vibrants del món. Tres dies de competició, convivència i creixement per a equips masculins i femenins Infantils (2014–2015).",
@@ -110,14 +110,14 @@ export const ui = {
     'simpatitzant.price_suffix': 'per temporada.',
     'simpatitzant.welcome': 'Benvingut a la Família SD Espanyol Futsal!',
     'simpatitzant.thanks': 'Gràcies per ajudar-nos a créixer Junts!',
-    'simpatitzant.quote': '“Més que un equip, un sentiment periquito també a la pista”',
+    'simpatitzant.quote': '“Més que un equip, un sentiment perico també a la pista”',
     'simpatitzant.cta': 'DONAR-SE D\'ALTA COM A SIMPATITZANT ✍️',
 
     // El Club Page
     'club.hero.title': 'EL CLUB',
     'club.hero.subtitle': 'Identitat, valors i compromís amb el futbol sala blanc-i-blau',
     'club.entity.title': '1. ENTITAT',
-    'club.entity.p1': "El projecte de futbol sala de l'Espanyol neix dins de les <strong>Seccions Esportives Espanyol</strong>, una entitat creada en 2017 amb l'objectiu de recuperar i desenvolupar disciplines històricament vinculades al sentiment periquito. Després de consolidar seccions com a hoquei patins, voleibol, handbol i bàsquet, en 2022 es va produir el retorn oficial del futbol sala a l'entorn espanyolista.",
+    'club.entity.p1': "El projecte de futbol sala de l'Espanyol neix dins de les <strong>Seccions Esportives Espanyol</strong>, una entitat creada en 2017 amb l'objectiu de recuperar i desenvolupar disciplines històricament vinculades al sentiment perico. Després de consolidar seccions com a hoquei patins, voleibol, handbol i bàsquet, en 2022 es va produir el retorn oficial del futbol sala a l'entorn espanyolista.",
     'club.entity.p2': "La creació d'<strong>Espanyol Futsal</strong> respon a la voluntat d'oferir una estructura esportiva competitiva, formativa i representativa dels valors del RCD Espanyol, mantenint una gestió independent però treballant en col·laboració amb l'entitat blanc-i-blava.",
     'club.entity.p3': "L'equip competeix en les categories federades de la <strong>Federació Catalana de Futbol Sala</strong>, amb l'objectiu de consolidar una estructura esportiva que permeti progressar temporada rere temporada i acostar-se a les màximes categories nacionals.",
     'club.entity.p4': "Des de la seva recuperació en 2022, el futbol sala de l'Espanyol ha experimentat un creixement constant, incorporant equips masculins i femenins, ampliant la seva base de jugadors i consolidant una estructura esportiva que permet desenvolupar talent des de les categories inferiors fins al primer equip.",
@@ -133,7 +133,7 @@ export const ui = {
     
     'club.project.vision.title': 'VISIÓ',
     'club.project.vision.desc': 'Ser una referència del futbol sala català i nacional, construint un projecte esportiu sostenible, competitiu i reconegut per la seva excel·lència, capaç de representar amb orgull els valors històrics de l\'espanyolisme dins i fora de la pista.',
-    'club.project.motto': '“Més que un equip, un sentiment periquito també a la pista”',
+    'club.project.motto': '“Més que un equip, un sentiment perico també a la pista”',
 
     'club.objectives.title': 'OBJECTIUS',
     'club.objectives.1': '1. Preservar i transmetre la identitat espanyolista: Representar els valors, la història i els sentiments del RCD Espanyol, fomentant l\'orgull de pertinença i el compromís amb l\'escut dins i fora de la pista.',
@@ -190,6 +190,8 @@ export const ui = {
     'federated.asst': 'Entrenador/a auxiliar:',
     'federated.delegate': 'Delegat/ada:',
     'federated.roster': 'Plantilla 2026-27',
+    'federated.competition': 'Competició FCF',
+    'federated.standings': 'Veure classificació',
 
     // Escolar / Extraescolars Page
     'extra.hero.title': 'FUTBOL SALA ESCOLAR',
@@ -413,7 +415,7 @@ export const ui = {
     'club.hero.title': 'EL CLUB',
     'club.hero.subtitle': 'Identidad, valores y compromiso con el fútbol sala blanquiazul',
     'club.entity.title': '1. ENTIDAD',
-    'club.entity.p1': 'El proyecto de fútbol sala del Espanyol nace dentro de las <strong>Seccions Esportives Espanyol</strong>, una entidad creada en 2017 con el objetivo de recuperar y desarrollar disciplinas históricamente vinculadas al sentimiento periquito. Tras consolidar secciones como hockey patines, voleibol, balonmano y baloncesto, en 2022 se produjo el retorno oficial del fútbol sala al entorno espanyolista.',
+    'club.entity.p1': 'El proyecto de fútbol sala del Espanyol nace dentro de las <strong>Seccions Esportives Espanyol</strong>, una entidad creada en 2017 con el objetivo de recuperar y desarrollar disciplinas históricamente vinculadas al sentimiento perico. Tras consolidar secciones como hockey patines, voleibol, balonmano y baloncesto, en 2022 se produjo el retorno oficial del fútbol sala al entorno espanyolista.',
     'club.entity.p2': 'La creación de <strong>Espanyol Futsal</strong> responde a la voluntad de ofrecer una estructura deportiva competitiva, formativa y representativa de los valores del RCD Espanyol, manteniendo una gestión independiente pero trabajando en colaboración con la entidad blanquiazul.',
     'club.entity.p3': 'El equipo compite en las categorías federadas de la <strong>Federació Catalana de Futbol Sala</strong>, con el objetivo de consolidar una estructura deportiva que permita progresar temporada tras temporada y acercarse a las máximas categorías nacionales.',
     'club.entity.p4': 'Desde su recuperación en 2022, el fútbol sala del Espanyol ha experimentado un crecimiento constante, incorporando equipos masculinos y femeninos, ampliando su base de jugadores y consolidando una estructura deportiva que permite desarrollar talento desde las categorías inferiores hasta el primer equipo.',
@@ -486,6 +488,8 @@ export const ui = {
     'federated.asst': 'Entrenador/a auxiliar:',
     'federated.delegate': 'Delegado/a:',
     'federated.roster': 'Plantilla 2026-27',
+    'federated.competition': 'Competición FCF',
+    'federated.standings': 'Ver clasificación',
 
     // Escolar / Extraescolars Page
     'extra.hero.title': 'FÚTBOL SALA ESCOLAR',

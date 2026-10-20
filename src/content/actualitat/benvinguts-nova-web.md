@@ -16,4 +16,4 @@ A partir d'avui, en aquest espai trobareu:
 
 Gràcies per ajudar-nos a créixer junts!
 
-*Més que un equip, un sentiment periquito també a la pista.*
+*Més que un equip, un sentiment perico també a la pista.*

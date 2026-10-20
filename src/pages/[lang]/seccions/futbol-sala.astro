@@ -17,7 +17,9 @@ const teams = [
     id: "senior-femeni",
     name: "1R EQUIP FEMENÍ",
     season: "2026-27",
-    image: null,
+    image: "/images/equips/1r-equip-femeni.jpg",
+    competition: "DIVISIÓ D'HONOR (GRUP ÚNIC)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=24694879&competicioId=58162794&grupId=58162795&tab=classificacio",
     staff: [
       { role: "1r Entrenador", name: "Ferran Roldán Salvador" },
       { role: "Entrenador auxiliar", name: "Oscar López Soler" },
@@ -48,6 +50,8 @@ const teams = [
     name: "1R EQUIP MASCULÍ",
     season: "2026-27",
     image: "/images/equips/1r-equip-masculi.jpg",
+    competition: "DIVISIÓ D'HONOR (BCN Gr. 2)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162558&grupId=58162561&tab=classificacio",
     staff: [
       { role: "1r Entrenador", name: "Fernando Andrade Alarcón" },
       { role: "Entrenador auxiliar", name: "Antonio Negre Serra" },
@@ -78,6 +82,8 @@ const teams = [
     name: "2D EQUIP MASCULÍ",
     season: "2026-27",
     image: "/images/equips/2d-equip-masculi.jpg",
+    competition: "SEGONA CAT (BCN Gr. 5)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162570&grupId=58162575&tab=classificacio",
     staff: [
       { role: "1r Entrenador", name: "Gerard Bascompte Garcia" },
     ],
@@ -106,6 +112,8 @@ const teams = [
     name: "3R EQUIP MASCULÍ",
     season: "2026-27",
     image: "/images/equips/3r-equip-masculi.jpg",
+    competition: "TERCERA CAT (BCN Gr. 9)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162583&grupId=58162594&tab=classificacio",
     staff: [
       { role: "1ra Entrenadora", name: "Ana Oller Garcia" },
       { role: "Entrenadora auxiliar", name: "Carlota Martinez Mestres" },
@@ -136,6 +144,8 @@ const teams = [
     name: "JUVENIL “A”",
     season: "2026-27",
     image: "/images/equips/juvenil-a.jpg",
+    competition: "TERCERA CAT (BCN Gr. 7)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162629&grupId=60013100&tab=classificacio",
     staff: [
       { role: "1r Entrenador", name: "Jorge Quixano Grande" },
     ],
@@ -160,7 +170,9 @@ const teams = [
     id: "juvenil-b",
     name: "JUVENIL “B”",
     season: "2026-27",
-    image: null,
+    image: "/images/equips/juvenil-b.jpg",
+    competition: "TERCERA CAT (BCN Gr. 6)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162629&grupId=60012944&tab=classificacio",
     staff: [
       { role: "1r Entrenador", name: "Oscar Salido Bote" },
     ],
@@ -172,6 +184,7 @@ const teams = [
       { num: 8, name: "Antonio Llinàres Gabarron" },
       { num: 11, name: "Alejandro Pablo Muci" },
       { num: 17, name: "David Alejandro Ojeda Estrada" },
+      { num: 19, name: "Pau Serra Travé" },
       { num: 20, name: "Adrián Mateo Barrera" },
       { num: 23, name: "Martí Pujol Viver" },
       { num: 30, name: "Antoni Porta Costa" },
@@ -186,6 +199,8 @@ const teams = [
     name: "INFANTIL",
     season: "2026-27",
     image: null,
+    competition: "TERCERA CAT (BCN Gr. 5)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162697&grupId=58162702&tab=classificacio",
     staff: [
       { role: "1r Entrenador", name: "Nestor Ramos Bolivar" },
     ],
@@ -214,6 +229,8 @@ const teams = [
     name: "ALEVÍ",
     season: "2026-27",
     image: null,
+    competition: "TERCERA CAT (BCN Gr. 2)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162729&grupId=58162731&tab=classificacio",
     staff: [
       { role: "1r Entrenador", name: "Alex González Barreira" },
     ],
@@ -242,6 +259,8 @@ const teams = [
     name: "BENJAMÍ “A”",
     season: "2026-27",
     image: null,
+    competition: "LLIGA BENJAMÍ FS (BCN Gr. 12)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162737&grupId=58162749&tab=classificacio",
     staff: [
       { role: "1ra Entrenadora", name: "Carla Zapata Jiménez" },
     ],
@@ -264,6 +283,8 @@ const teams = [
     name: "BENJAMÍ “B”",
     season: "2026-27",
     image: null,
+    competition: "LLIGA BENJAMÍ FS (BCN Gr. 13)",
+    standingsUrl: "https://www.fcf.cat/ca/competicio?temporadaId=22&disciplinaId=19308236&competicioId=58162737&grupId=58162750&tab=classificacio",
     staff: [
       { role: "1ra Entrenadora", name: "Carla Zapata Jiménez" },
     ],
@@ -372,7 +393,7 @@ const teams = [
                     <div class="p-6 md:p-8">
                       <!-- Official Team Photo -->
                       {team.image ? (
-                        <div class="mb-8 rounded-xl overflow-hidden shadow-md border border-gray-100 max-h-[500px]">
+                        <div class="mb-8 max-w-3xl mx-auto rounded-xl overflow-hidden shadow-md border border-gray-100 aspect-[4/3]">
                           <img
                             src={team.image}
                             alt={`Foto Oficial ${team.name}`}
@@ -417,6 +438,27 @@ const teams = [
                           ))}
                         </div>
                       </div>
+
+                      <!-- Classificació FCF -->
+                      {team.standingsUrl && (
+                        <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                          <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block">
+                              {t("federated.competition")}
+                            </span>
+                            <span class="text-sm font-bold text-gray-800">{team.competition}</span>
+                          </div>
+                          <a
+                            href={team.standingsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0073ce] hover:bg-[#005bac] text-white text-sm font-bold rounded-xl shadow-sm transition-colors"
+                          >
+                            <span>🏆</span> {t("federated.standings")}
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
