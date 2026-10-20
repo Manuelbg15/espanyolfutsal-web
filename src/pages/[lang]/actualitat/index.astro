@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import NewsCard from "../../../components/NewsCard.astro";
-import { getCollection } from "astro:content";
+import { getNoticias, type Lang } from "../../../lib/noticias";
 import { useTranslations } from "../../../i18n/utils";
 
 export function getStaticPaths() {
@@ -12,9 +12,7 @@ const { lang } = Astro.params;
 const t = useTranslations(lang as any);
 const locale = lang === "es" ? "es-ES" : "ca-ES";
 
-const posts = (await getCollection("actualitat")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = await getNoticias(lang as Lang);
 const fallbackImg = "/images/escudo-espanyol.png";
 const [featured, ...rest] = posts;
 const fmt = (d: Date) =>
@@ -49,21 +47,21 @@ const fmt = (d: Date) =>
         <article class="mb-14 bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col lg:flex-row">
           <a href={`/${lang}/actualitat/${featured.slug}`} class="lg:w-3/5 block overflow-hidden">
             <img
-              src={featured.data.heroImage || fallbackImg}
-              alt={featured.data.title}
+              src={featured.image || fallbackImg}
+              alt={featured.title}
               class="w-full h-full max-h-[460px] object-cover aspect-video lg:aspect-auto"
             />
           </a>
           <div class="lg:w-2/5 p-8 md:p-10 flex flex-col justify-center">
-            <time class="text-[#0073ce] text-sm font-bold mb-3" datetime={featured.data.pubDate.toISOString()}>
-              {fmt(featured.data.pubDate)}
+            <time class="text-[#0073ce] text-sm font-bold mb-3" datetime={featured.date.toISOString()}>
+              {fmt(featured.date)}
             </time>
             <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 font-heading leading-tight">
               <a href={`/${lang}/actualitat/${featured.slug}`} class="hover:text-[#0073ce]">
-                {featured.data.title}
+                {featured.title}
               </a>
             </h3>
-            <p class="text-gray-600 mb-6 leading-relaxed line-clamp-4">{featured.data.description}</p>
+            <p class="text-gray-600 mb-6 leading-relaxed line-clamp-4">{featured.description}</p>
             <a
               href={`/${lang}/actualitat/${featured.slug}`}
               class="self-start text-[#0073ce] font-bold border-b-2 border-[#0073ce]/30 hover:border-[#0073ce]"
@@ -78,10 +76,10 @@ const fmt = (d: Date) =>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {rest.map((post) => (
             <NewsCard
-              title={post.data.title}
-              image={post.data.heroImage || fallbackImg}
+              title={post.title}
+              image={post.image || fallbackImg}
               link={`/${lang}/actualitat/${post.slug}`}
-              excerpt={post.data.description}
+              excerpt={post.description}
               readMore={t("news.read_more")}
             />
           ))}

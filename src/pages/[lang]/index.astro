@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { patrocinadors, mitjans } from "../../data/sponsors";
 import SectionCard from "../../components/SectionCard.astro";
 import NewsCard from "../../components/NewsCard.astro";
-import { getCollection } from "astro:content";
+import { getNoticias, type Lang } from "../../lib/noticias";
 
 export function getStaticPaths() {
   return [{ params: { lang: "ca" } }, { params: { lang: "es" } }];
@@ -13,22 +13,13 @@ const { lang } = Astro.params;
 import { useTranslations } from "../../i18n/utils";
 const t = useTranslations(lang as any);
 
-// Load news from Astro local collection
-let latestNews: any[] = [];
-try {
-  const collectionPosts = await getCollection("actualitat");
-  latestNews = collectionPosts
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .slice(0, 3)
-    .map((post) => ({
-      id: post.slug,
-      title: post.data.title,
-      description: post.data.description,
-      imageUrl: post.data.heroImage || "/images/equips/1r-equip-masculi.jpg",
-    }));
-} catch (e) {
-  latestNews = [];
-}
+// Últimes notícies (CMS + locals)
+const latestNews = (await getNoticias(lang as Lang)).slice(0, 3).map((post) => ({
+  id: post.slug,
+  title: post.title,
+  description: post.description,
+  imageUrl: post.image || "/images/equips/1r-equip-masculi.jpg",
+}));
 
 const sections = [
   {

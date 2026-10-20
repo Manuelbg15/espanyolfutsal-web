@@ -1,36 +1,40 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import { useTranslations } from "../../../i18n/utils";
+import { getNoticias, type Lang, type Noticia } from "../../../lib/noticias";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("actualitat");
-  return ["ca", "es"].flatMap((lang) =>
-    posts.map((post) => ({ params: { lang, slug: post.slug }, props: { post } })),
+  const langs: Lang[] = ["ca", "es"];
+  const paths = await Promise.all(
+    langs.map(async (lang) =>
+      (await getNoticias(lang)).map((post) => ({ params: { lang, slug: post.slug }, props: { post } })),
+    ),
   );
+  return paths.flat();
 }
 
 const { lang } = Astro.params;
-const { post } = Astro.props;
+const { post } = Astro.props as { post: Noticia };
 const t = useTranslations(lang as any);
-const { Content } = await render(post);
+const Content = post.entry ? (await render(post.entry)).Content : null;
 const locale = lang === "es" ? "es-ES" : "ca-ES";
 ---
 
-<Layout title={`${post.data.title} | SD Espanyol Futbol Sala`} description={post.data.description}>
+<Layout title={`${post.title} | SD Espanyol Futbol Sala`} description={post.description}>
   <article class="max-w-3xl mx-auto px-6 py-14 md:py-20">
-    <time class="text-[#0073ce] text-sm font-bold" datetime={post.data.pubDate.toISOString()}>
-      {post.data.pubDate.toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric" })}
+    <time class="text-[#0073ce] text-sm font-bold" datetime={post.date.toISOString()}>
+      {post.date.toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric" })}
     </time>
     <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight font-heading mt-2 mb-5">
-      {post.data.title}
+      {post.title}
     </h1>
-    <p class="text-xl text-gray-600 leading-relaxed mb-8">{post.data.description}</p>
-    {post.data.heroImage && (
-      <img src={post.data.heroImage} alt={post.data.title} class="w-full h-auto rounded-2xl shadow-lg mb-10" />
+    <p class="text-xl text-gray-600 leading-relaxed mb-8">{post.description}</p>
+    {post.image && (
+      <img src={post.image} alt={post.title} class="w-full h-auto rounded-2xl shadow-lg mb-10" />
     )}
     <div class="news-body text-gray-800 text-lg leading-relaxed">
-      <Content />
+      {Content ? <Content /> : <Fragment set:html={post.html} />}
     </div>
     <div class="mt-12 pt-8 border-t border-gray-200">
       <a href={`/${lang}/actualitat`} class="text-[#0073ce] font-bold hover:underline">
@@ -48,6 +52,6 @@ const locale = lang === "es" ? "es-ES" : "ca-ES";
   .news-body ol { list-style: decimal; padding-left: 1.4rem; margin-bottom: 1.1rem; }
   .news-body li { margin-bottom: 0.4rem; }
   .news-body a { color: #0073ce; text-decoration: underline; }
-  .news-body img { border-radius: 1rem; margin: 1.5rem 0; }
+  .news-body img { border-radius: 1rem; margin: 1.5rem 0; max-width: 100%; height: auto; }
   .news-body blockquote { border-left: 4px solid #0073ce; padding-left: 1rem; color: #475569; margin: 1.5rem 0; }
 </style>
