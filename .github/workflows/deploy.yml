@@ -6,6 +6,11 @@ on:
       - main
   workflow_dispatch:
 
+# Evita dos desplegaments alhora si es fan pushes seguits
+concurrency:
+  group: deploy-hostalia
+  cancel-in-progress: false
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -17,7 +22,8 @@ jobs:
       - name: 🟢 Use Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: npm
 
       - name: 📦 Install Dependencies
         run: npm ci
@@ -26,7 +32,21 @@ jobs:
         run: npm run build
 
       - name: 📂 Sync files (LFTP)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
         run: |
           sudo apt-get update
           sudo apt-get install -y lftp
-          lftp -c "set ftp:ssl-allow no; set ssl:verify-certificate no; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; mirror -R -v --parallel=2 --delete ./dist ${{ secrets.FTP_REMOTE_DIR }}; bye"
+          # --delete esborra del servidor el que ja no existeix a dist,
+          # excepte la configuració de PHP de Plesk i la validació del certificat SSL.
+          lftp -u "$FTP_USERNAME" --env-password "$FTP_SERVER" -e "
+            set ftp:ssl-allow yes;
+            set ssl:verify-certificate no;
+            mirror -R -v --parallel=2 --delete \
+              --exclude-glob .user.ini \
+              --exclude-glob .well-known/ \
+              ./dist \"$FTP_REMOTE_DIR\";
+            bye"
