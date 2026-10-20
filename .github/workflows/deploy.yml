@@ -38,15 +38,28 @@ jobs:
           LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
         run: |
+          # Neteja espais i salts de línia que s'hagin pogut colar en enganxar els secrets
+          clean() { printf '%s' "$1" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'; }
+          SERVER="$(clean "$FTP_SERVER")"
+          USERNAME="$(clean "$FTP_USERNAME")"
+          REMOTE_DIR="$(clean "$FTP_REMOTE_DIR")"
+          case "$REMOTE_DIR" in
+            /*) ;;
+            *) echo "::error::FTP_REMOTE_DIR ha de començar per / (per exemple /espanyolfutsal.es)"; exit 1 ;;
+          esac
+          case "$REMOTE_DIR" in
+            *[[:space:]\"\']*) echo "::error::FTP_REMOTE_DIR no pot contenir espais ni cometes"; exit 1 ;;
+          esac
+
           sudo apt-get update
           sudo apt-get install -y lftp
           # --delete esborra del servidor el que ja no existeix a dist,
           # excepte la configuració de PHP de Plesk i la validació del certificat SSL.
-          lftp -u "$FTP_USERNAME" --env-password "$FTP_SERVER" -e "
+          lftp -u "$USERNAME" --env-password "$SERVER" -e "
             set ftp:ssl-allow yes;
             set ssl:verify-certificate no;
             mirror -R -v --parallel=2 --delete \
               --exclude-glob .user.ini \
               --exclude-glob .well-known/ \
-              ./dist \"$FTP_REMOTE_DIR\";
+              ./dist $REMOTE_DIR;
             bye"
